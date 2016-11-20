@@ -24,6 +24,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity android:name=".SellerRegisterActivity">
+
+        </activity>
     </application>
 
 </manifest>
