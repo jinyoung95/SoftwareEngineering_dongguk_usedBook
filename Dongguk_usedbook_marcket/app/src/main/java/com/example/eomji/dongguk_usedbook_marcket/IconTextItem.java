@@ -2,48 +2,23 @@ package com.example.eomji.dongguk_usedbook_marcket;
 
 import android.graphics.drawable.Drawable;
 
-/**
- * 데이터를 담고 있을 아이템 정의
- *
- * @author Mike
- *
- */
+// 데이터를 담고 있을 아이템 정의
 public class IconTextItem {
 
-    /**
-     * Icon
-     */
+    //Icon
     private Drawable mIcon;
-
-    /**
-     * Data array
-     */
+    // Data array
     private String[] mData;
-
-    /**
-     * True if this item is selectable
-     */
+    //True if this item is selectable
     private boolean mSelectable = true;
 
-    /**
-     * Initialize with icon and data array
-     *
-     * @param icon
-     * @param obj
-     */
+    //Initialize with icon and data array
     public IconTextItem(Drawable icon, String[] obj) {
         mIcon = icon;
         mData = obj;
     }
 
-    /**
-     * Initialize with icon and strings
-     *
-     * @param icon
-     * @param obj01
-     * @param obj02
-     * @param obj03
-     */
+    //Initialize with icon and strings
     public IconTextItem(Drawable icon, String obj01, String obj02, String obj03) {
         mIcon = icon;
 
@@ -53,32 +28,22 @@ public class IconTextItem {
         mData[2] = obj03;
     }
 
-    /**
-     * True if this item is selectable
-     */
+    // True if this item is selectable
     public boolean isSelectable() {
         return mSelectable;
     }
 
-    /**
-     * Set selectable flag
-     */
+    // Set selectable flag
     public void setSelectable(boolean selectable) {
         mSelectable = selectable;
     }
 
-    /**
-     * Get data array
-     *
-     * @return
-     */
+    // Get data array
     public String[] getData() {
         return mData;
     }
 
-    /**
-     * Get data
-     */
+    // Get data
     public String getData(int index) {
         if (mData == null || index >= mData.length) {
             return null;
@@ -87,39 +52,22 @@ public class IconTextItem {
         return mData[index];
     }
 
-    /**
-     * Set data array
-     *
-     * @param obj
-     */
+    // Set data array
     public void setData(String[] obj) {
         mData = obj;
     }
 
-    /**
-     * Set icon
-     *
-     * @param icon
-     */
+    // Set icon
     public void setIcon(Drawable icon) {
         mIcon = icon;
     }
 
-    /**
-     * Get icon
-     *
-     * @return
-     */
+    // Get icon
     public Drawable getIcon() {
         return mIcon;
     }
 
-    /**
-     * Compare with the input object
-     *
-     * @param other
-     * @return
-     */
+    // Compare with the input object
     public int compareTo(IconTextItem other) {
         if (mData != null) {
             String[] otherData = other.getData();
@@ -135,7 +83,6 @@ public class IconTextItem {
         } else {
             throw new IllegalArgumentException();
         }
-
         return 0;
     }
 

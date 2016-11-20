@@ -6,32 +6,16 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/**
- * 아이템으로 보여줄 뷰 정의
- *
- * @author Mike
- *
- */
+
+// 아이템으로 보여줄 뷰 정의
 public class IconTextView extends LinearLayout {
-
-    /**
-     * Icon
-     */
+    // Icon
     private ImageView mIcon;
-
-    /**
-     * TextView 01
-     */
+    // TextView 01
     private TextView mText01;
-
-    /**
-     * TextView 02
-     */
+    //TextView 02
     private TextView mText02;
-
-    /**
-     * TextView 03
-     */
+    // TextView 03
     private TextView mText03;
 
     public IconTextView(Context context, IconTextItem aItem) {
@@ -59,12 +43,6 @@ public class IconTextView extends LinearLayout {
 
     }
 
-    /**
-     * set Text
-     *
-     * @param index
-     * @param data
-     */
     public void setText(int index, String data) {
         if (index == 0) {
             mText01.setText(data);
@@ -77,11 +55,6 @@ public class IconTextView extends LinearLayout {
         }
     }
 
-    /**
-     * set Icon
-     *
-     * @param icon
-     */
     public void setIcon(Drawable icon) {
         mIcon.setImageDrawable(icon);
     }

@@ -8,12 +8,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 어댑터 클래스 정의
- *
- * @author Mike
- *
- */
+// 어댑터 클래스 정의
 public class IconTextListAdapter extends BaseAdapter {
 
     private Context mContext;
@@ -24,9 +19,7 @@ public class IconTextListAdapter extends BaseAdapter {
         mContext = context;
     }
 
-    public void addItem(IconTextItem it) {
-        mItems.add(it);
-    }
+    public void addItem(IconTextItem it) { mItems.add(it); }
 
     public void setListItems(List<IconTextItem> lit) {
         mItems = lit;
@@ -68,7 +61,6 @@ public class IconTextListAdapter extends BaseAdapter {
             itemView.setText(1, mItems.get(position).getData(1));
             itemView.setText(2, mItems.get(position).getData(2));
         }
-
         return itemView;
     }
 
