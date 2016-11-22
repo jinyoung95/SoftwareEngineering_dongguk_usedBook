@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.se_team8.dongguk_usedbook_market"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="25" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/launchermap"
+        android:label=" "
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.se_team8.dongguk_usedbook_market.LoginActivity" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.se_team8.dongguk_usedbook_market.HomeActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.MypageActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.SellerRegisterActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.ResultsActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.BookDetailsActivity" >
+        </activity>
+        <activity android:name="com.se_team8.dongguk_usedbook_market.BuyerSearchActivity" />
+    </application>
+
+</manifest>
