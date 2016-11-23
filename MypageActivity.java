@@ -1,5 +1,6 @@
 package com.se_team8.dongguk_usedbook_market;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Juhyeon on 2016-11-11.
+ */
 public class MypageActivity extends AppCompatActivity {
 
     @Override
@@ -15,9 +19,11 @@ public class MypageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
+        getSupportActionBar().hide();
+
         ExpandableListView elv = (ExpandableListView) findViewById(R.id.elv);
 
-        final ArrayList<ListName> listName = getData();
+        final ArrayList<ListName> listName = get_register_Data();
 
         //create and bind to adatper
         myAdapter adapter = new myAdapter(this, listName);
@@ -27,28 +33,31 @@ public class MypageActivity extends AppCompatActivity {
         elv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(getApplicationContext(), listName.get(groupPosition).users.get(childPosition), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), listName.get(groupPosition).info1.get(childPosition), Toast.LENGTH_LONG).show();
                 return false;
             }
         });
-
     }
     //add and get data for list
-    private ArrayList<ListName> getData() {
+    private ArrayList<ListName> get_register_Data() {
+        ListName L_register = new ListName("판매 등록 목록");
+        L_register.info1.add("소프트웨어공학개론"); L_register.info2.add("최은만");
+        L_register.info1.add("컴퓨터시스템구조론"); L_register.info2.add("최은만");
 
-        ListName L1 = new ListName("구매 요청 목록");
-        L1.users.add("2014112019");
-        L1.users.add("2014112041");
+        ListName L_request = new ListName("구매 요청 목록");
+        L_request.info1.add("2014112019"); L_request.info2.add("김주현");
+        L_request.info1.add("2014112041"); L_request.info2.add("김엄지");
 
-        ListName L2 = new ListName("판매 등록 목록");
-        L2.users.add("2014112057");
-        L2.users.add("2014112022");
 
-        ArrayList<ListName> alllistName = new ArrayList<>();
-        alllistName.add(L1);
-        alllistName.add(L2);
+        ArrayList<ListName> all_listName = new ArrayList<>();
+        all_listName.add(L_register);
+        all_listName.add(L_request);
 
-        return alllistName;
+        return all_listName;
+    }
+    public void onHomeButtonClicked(View view){
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(intent);
     }
     /*
     @Override

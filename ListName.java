@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class ListName {
     //Properties of Position
     public String listName;
-    public String image;
-    public ArrayList<String> users = new ArrayList<String>();
+    public ArrayList<String> info1 = new ArrayList<String>();
+    public ArrayList<String> info2 = new ArrayList<String>();
 
     public ListName(String listName){
         this.listName = listName;

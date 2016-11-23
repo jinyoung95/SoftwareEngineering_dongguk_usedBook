@@ -33,7 +33,7 @@ public class myAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return listName.get(groupPosition).users.size();
+        return listName.get(groupPosition).info1.size();
     }
 
     //get position
@@ -45,7 +45,7 @@ public class myAdapter extends BaseExpandableListAdapter {
     //this is where we get the information of player
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return listName.get(groupPosition).users.get(childPosition);
+        return listName.get(groupPosition).info1.get(childPosition);
     }
 
     //position ID
@@ -54,7 +54,7 @@ public class myAdapter extends BaseExpandableListAdapter {
         return 0;
     }
 
-    //where to get player's id
+    //where to get user's id
     @Override
     public long getChildId(int groupPosition, int childPosition) {
         return 0;
@@ -69,19 +69,14 @@ public class myAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.activity_mypageparent, null);
+            convertView = inflater.inflate(R.layout.activity_mypage_parent, null);
         }
-
         //get position
         ListName listName = (ListName) getGroup(groupPosition);
-
         //set positionName
         String list = listName.listName;
-
         TextView textView = (TextView) convertView.findViewById(R.id.listName);
         textView.setText(list);
-
-
         //convertView.setBackgroundColor();
         return convertView;
     }
@@ -92,17 +87,18 @@ public class myAdapter extends BaseExpandableListAdapter {
 
         //inflate the layout
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.activity_mypagechild, null);
+                convertView = inflater.inflate(R.layout.activity_mypage_child, null);
         }
 
         String child = (String) getChild(groupPosition, childPosition);
 
         //set the child name
-        TextView name = (TextView) convertView.findViewById(R.id.userName);
+        TextView info1 = (TextView) convertView.findViewById(R.id.info1);
+        TextView info2 = (TextView) convertView.findViewById(R.id.info2);
         //get the imageView
-        TextView id = (TextView) convertView.findViewById(R.id.userId);
 
-        name.setText(child);
+        info1.setText(child);
+        info2.setText(child);
 
         //get position name
         String positionName = (String) getGroup(groupPosition).toString();
