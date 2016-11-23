@@ -6,18 +6,18 @@
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
-                    "startOffset": 55,
+                    "startOffset": 105,
                     "endColumn": 102,
-                    "endOffset": 153
+                    "endOffset": 203
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 2,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 280,
                         "endColumn": 102,
-                        "endOffset": 153
+                        "endOffset": 378
                     }
                 }
             },
@@ -25,18 +25,18 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 158,
+                    "startOffset": 208,
                     "endColumn": 107,
-                    "endOffset": 261
+                    "endOffset": 311
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 158,
+                        "startOffset": 383,
                         "endColumn": 107,
-                        "endOffset": 261
+                        "endOffset": 486
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 266,
+                    "startOffset": 316,
                     "endColumn": 122,
-                    "endOffset": 384
+                    "endOffset": 434
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 266,
+                        "startOffset": 491,
                         "endColumn": 122,
-                        "endOffset": 384
+                        "endOffset": 609
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 389,
+                    "startOffset": 439,
                     "endColumn": 97,
-                    "endOffset": 482
+                    "endOffset": 532
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 389,
+                        "startOffset": 614,
                         "endColumn": 97,
-                        "endOffset": 482
+                        "endOffset": 707
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 487,
+                    "startOffset": 537,
                     "endColumn": 107,
-                    "endOffset": 590
+                    "endOffset": 640
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 487,
+                        "startOffset": 712,
                         "endColumn": 107,
-                        "endOffset": 590
+                        "endOffset": 815
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 595,
+                    "startOffset": 645,
                     "endColumn": 89,
-                    "endOffset": 680
+                    "endOffset": 730
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 595,
+                        "startOffset": 820,
                         "endColumn": 89,
-                        "endOffset": 680
+                        "endOffset": 905
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 685,
+                    "startOffset": 735,
                     "endColumn": 104,
-                    "endOffset": 785
+                    "endOffset": 835
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 685,
+                        "startOffset": 910,
                         "endColumn": 104,
-                        "endOffset": 785
+                        "endOffset": 1010
                     }
                 }
             },
@@ -139,18 +139,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 790,
+                    "startOffset": 840,
                     "endColumn": 116,
-                    "endOffset": 902
+                    "endOffset": 952
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 790,
+                        "startOffset": 1015,
                         "endColumn": 116,
-                        "endOffset": 902
+                        "endOffset": 1127
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 907,
+                    "startOffset": 957,
                     "endColumn": 81,
-                    "endOffset": 984
+                    "endOffset": 1034
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 907,
+                        "startOffset": 1132,
                         "endColumn": 81,
-                        "endOffset": 984
+                        "endOffset": 1209
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 989,
-                    "endColumn": 82,
-                    "endOffset": 1067
+                    "startOffset": 1039,
+                    "endColumn": 100,
+                    "endOffset": 1135
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 989,
-                        "endColumn": 82,
-                        "endOffset": 1067
+                        "startOffset": 1214,
+                        "endColumn": 100,
+                        "endOffset": 1310
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1072,
-                    "endColumn": 81,
-                    "endOffset": 1149
+                    "startOffset": 1140,
+                    "endColumn": 108,
+                    "endOffset": 1244
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1072,
-                        "endColumn": 81,
-                        "endOffset": 1149
+                        "startOffset": 1315,
+                        "endColumn": 108,
+                        "endOffset": 1419
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1154,
-                    "endColumn": 100,
-                    "endOffset": 1250
+                    "startOffset": 1249,
+                    "endColumn": 98,
+                    "endOffset": 1343
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1154,
-                        "endColumn": 100,
-                        "endOffset": 1250
+                        "startOffset": 1424,
+                        "endColumn": 98,
+                        "endOffset": 1518
                     }
                 }
             },
@@ -234,18 +234,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1255,
-                    "endColumn": 108,
-                    "endOffset": 1359
+                    "startOffset": 1348,
+                    "endColumn": 106,
+                    "endOffset": 1450
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1255,
-                        "endColumn": 108,
-                        "endOffset": 1359
+                        "startOffset": 1523,
+                        "endColumn": 106,
+                        "endOffset": 1625
                     }
                 }
             },
@@ -253,18 +253,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1364,
-                    "endColumn": 98,
-                    "endOffset": 1458
+                    "startOffset": 1455,
+                    "endColumn": 108,
+                    "endOffset": 1559
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1364,
-                        "endColumn": 98,
-                        "endOffset": 1458
+                        "startOffset": 1630,
+                        "endColumn": 108,
+                        "endOffset": 1734
                     }
                 }
             },
@@ -272,18 +272,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1463,
-                    "endColumn": 106,
-                    "endOffset": 1565
+                    "startOffset": 1564,
+                    "endColumn": 104,
+                    "endOffset": 1664
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1463,
-                        "endColumn": 106,
-                        "endOffset": 1565
+                        "startOffset": 1739,
+                        "endColumn": 104,
+                        "endOffset": 1839
                     }
                 }
             },
@@ -291,18 +291,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1570,
-                    "endColumn": 108,
-                    "endOffset": 1674
+                    "startOffset": 1669,
+                    "endColumn": 118,
+                    "endOffset": 1783
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1570,
-                        "endColumn": 108,
-                        "endOffset": 1674
+                        "startOffset": 1844,
+                        "endColumn": 118,
+                        "endOffset": 1958
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1679,
-                    "endColumn": 104,
-                    "endOffset": 1779
+                    "startOffset": 1788,
+                    "endColumn": 96,
+                    "endOffset": 1880
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 1679,
-                        "endColumn": 104,
-                        "endOffset": 1779
+                        "startOffset": 1963,
+                        "endColumn": 96,
+                        "endOffset": 2055
                     }
                 }
             },
@@ -329,18 +329,18 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1784,
-                    "endColumn": 118,
-                    "endOffset": 1898
+                    "startOffset": 1885,
+                    "endColumn": 252,
+                    "endOffset": 2133
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\9.6.1\\res\\values-sw\\values.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 1784,
-                        "endColumn": 118,
-                        "endOffset": 1898
+                        "startOffset": 343,
+                        "endColumn": 252,
+                        "endOffset": 591
                     }
                 }
             },
@@ -348,56 +348,18 @@
                 "to": {
                     "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 1903,
-                    "endColumn": 96,
-                    "endOffset": 1995
+                    "startOffset": 2138,
+                    "endColumn": 100,
+                    "endOffset": 2234
                 },
                 "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1903,
-                        "endColumn": 96,
-                        "endOffset": 1995
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 2000,
-                    "endColumn": 81,
-                    "endOffset": 2077
-                },
-                "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
+                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-sw\\values-sw.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 2000,
-                        "endColumn": 81,
-                        "endOffset": 2077
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 22,
-                    "startColumn": 4,
-                    "startOffset": 2082,
-                    "endColumn": 100,
-                    "endOffset": 2178
-                },
-                "from": {
-                    "file": "C:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.0\\res\\values-sw\\values-sw.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 2082,
+                        "startOffset": 2060,
                         "endColumn": 100,
-                        "endOffset": 2178
+                        "endOffset": 2156
                     }
                 }
             }
