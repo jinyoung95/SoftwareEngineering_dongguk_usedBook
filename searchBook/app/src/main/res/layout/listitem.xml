@@ -7,10 +7,9 @@
     <ImageView
         android:id="@+id/ivImg"
         android:layout_width="88dp"
-        android:layout_height="133dp"
+        android:layout_height="match_parent"
         android:padding="8dp"
         android:layout_gravity="center_vertical"/>
-
     <LinearLayout
         android:layout_width="276dp"
         android:layout_height="match_parent"
@@ -23,35 +22,37 @@
             android:textStyle="bold"
             android:textSize="16dp"
             android:padding="4dp"/>
-        <LinearLayout
-            android:layout_width="276dp"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
-            <TextView
-                android:id="@+id/tvAuthor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tvPublisher"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tvPublisher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_weight="1"/>
         <TextView
             android:id="@+id/tvPubdate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="13dp"
             android:layout_weight="1" />
         <TextView
             android:id="@+id/tvISBN"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="13dp"
             android:layout_weight="1" />
         <TextView
             android:id="@+id/tvPrice"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:textColor="#ccf88107"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

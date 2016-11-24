@@ -5,8 +5,7 @@ package com.se_team8.searchbook.adaptor;
  * */
 
 import android.content.Context;
-// import android.text.Html;
-import android.view.LayoutInflater;
+import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -66,11 +65,10 @@ public class BookAdaptor extends BaseAdapter {
 
         // findviewById 매번 하지 않고 ViewHolder 기법으로 저장했다가 재사용 => ViewHolder 패턴
         // TextView의 html 처리: Html.fromHtml 사용
-        // TextView의 글자가 길때 자르기 -> 찾아보고 다시 수정
-        // holder.tvTitle.setText(Html.fromHtml(mBookList.get(position).getTitle()));
-        holder.tvTitle.setText(mBookList.get(position).getTitle());
-        holder.tvAuthor.setText(mBookList.get(position).getAuthor());
-        holder.tvPublisher.setText(mBookList.get(position).getPublisher());
+        // TextView의 글자가 길때 자르기
+        holder.tvTitle.setText(Html.fromHtml(mBookList.get(position).getTitle()));
+        holder.tvAuthor.setText(Html.fromHtml(mBookList.get(position).getAuthor()));
+        holder.tvPublisher.setText(Html.fromHtml(mBookList.get(position).getPublisher()));
         holder.tvPubdate.setText(mBookList.get(position).getPubdate());
         holder.tvISBN.setText(mBookList.get(position).getIsbn());
         holder.tvPrice.setText(mBookList.get(position).getPrice());
@@ -83,7 +81,7 @@ public class BookAdaptor extends BaseAdapter {
             // 현재 리스트가 스크롤일때는 이미처 처리를 하지 않는다.
         } else {
             // 두번째파라미터: 메모리캐시, 세번째파라미터: 파일캐시 사용하기
-            aq.id(holder.ivImg).image(mBookList.get(position).getImgUrl(), true, true);
+            aq.id(holder.ivImg).image(mBookList.get(position).getImgUrl(), true, true, 200, 0);
         }
 
         return convertView;

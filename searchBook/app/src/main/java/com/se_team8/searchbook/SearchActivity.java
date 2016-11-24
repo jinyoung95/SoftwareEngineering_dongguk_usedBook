@@ -1,10 +1,11 @@
 package com.se_team8.searchbook;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -17,12 +18,8 @@ import com.androidquery.util.XmlDom;
 import com.se_team8.searchbook.adaptor.BookAdaptor;
 import com.se_team8.searchbook.domain.BookVO;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by JinYoung on 2016-11-22.
@@ -46,12 +43,14 @@ public class SearchActivity extends AppCompatActivity{
 
         adapter = new BookAdaptor(this, mBookList); //어댑터 객체 생성
 
-        Button btn = (Button) findViewById(R.id.searchButton);
+        Button btnSearch = (Button) findViewById(R.id.searchButton);
         // 검색 버튼을 눌렀을 때
-        btn.setOnClickListener(new View.OnClickListener(){
+        btnSearch.setOnClickListener(new View.OnClickListener(){
             @Override
            public void onClick(View v){
-                Toast.makeText(getApplicationContext(), "Selected", Toast.LENGTH_LONG).show();
+                getSupportActionBar().hide(); // 타이틀이 안보이도록 함
+
+                Toast.makeText(getApplicationContext(), "검색이 완료되었습니다.", Toast.LENGTH_LONG).show();
 
                 String query = search_text.getText().toString();
             /*HashMap<String, String> params = new HashMap<String, String>();
@@ -97,24 +96,25 @@ public class SearchActivity extends AppCompatActivity{
 
         listView.setAdapter(adapter); // 리스트뷰에 어댑터 객체 설정
 
-        getSupportActionBar().hide(); // 타이틀을 안보이도록 함
+        // 리스트 뷰의 한 아이템 선택했을 때
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                BookVO curItem = (BookVO) adapter.getItem(position);
+
+                Toast.makeText(getApplicationContext(), "Selected", Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(getApplicationContext(), BookDetailsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 
     public void onHomeButtonClicked(View view){
 //        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 //        startActivity(intent);
-    }
-
-    // 버튼을 누르면 책이 검색된다. (판매자가 등록한 책들 중에서)
-    public void onSearchButtonClicked(View view){
-        //String search_data = search_text.getText().toString();
-
-        //search_data를 받아서 책을 검색하는 함수
-        //검색한 책들을 아래 화면에 보여준다.
-        //Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-        //startActivity(intent);
-
     }
 
     /*
