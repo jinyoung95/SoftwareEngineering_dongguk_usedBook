@@ -42,7 +42,7 @@ import android.app.Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvIsConnected, tvResponse;
+    TextView tvIsConnected; //, tvResponse;
     EditText etID, etPW;
     Button btnPost;
     Person person;
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etID = (EditText) findViewById(R.id.etID);
         etPW = (EditText) findViewById(R.id.etPW);
         btnPost = (Button) findViewById(R.id.btnPost);
-        tvResponse = (TextView) findViewById(R.id.tvResponse);
+        //tvResponse = (TextView) findViewById(R.id.tvResponse);
 
         // check if you are connected or not
         if(isConnected()){
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else {
                     // call AsynTask to perform network operation on separate thread
                     HttpAsyncTask httpTask = new HttpAsyncTask(MainActivity.this);
-                    httpTask.execute("http://127.0.0.1:8000/api-token-auth/", etID.getText().toString(), etPW.getText().toString());
+                    httpTask.execute("http://127.0.0.1:8000/loginCheck/", etID.getText().toString(), etPW.getText().toString());
                 }
                 break;
         }
@@ -141,18 +141,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             strJson = result;
-            mainAct.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Toast.makeText(mainAct, "send Data!", Toast.LENGTH_LONG).show();
-                        JSONArray json = new JSONArray(strJson);
-                        mainAct.tvResponse.setText(json.toString(1));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
+            Toast.makeText(mainAct, "send Data!", Toast.LENGTH_LONG).show();
+         //   mainAct.runOnUiThread(new Runnable() {
+          //      @Override
+              //  public void run() {
+
+                    //try {
+                    //   Toast.makeText(mainAct, "0", Toast.LENGTH_LONG).show();
+                    //    JSONArray json = new JSONArray(strJson);
+                    //    Toast.makeText(mainAct, "1", Toast.LENGTH_LONG).show();
+                    //    mainAct.tvResponse.setText(json.toString(1));
+                   //     Toast.makeText(mainAct, "2", Toast.LENGTH_LONG).show();
+                   // } catch (JSONException e) {
+                   //     e.printStackTrace();
+                   //     Toast.makeText(mainAct, "3", Toast.LENGTH_LONG).show();
+                   // }
+            //    }
+          //  });
         }
     }
 
@@ -180,15 +185,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Get the response Inputstream, convert it to String and return it.
     */
     public static String POST(String url, Person person){
-        OutputStream os = null;
-        InputStream is = null;
-        ByteArrayOutputStream baos = null;
-        HttpURLConnection httpCon = null;
-        String response = "";
+        StringBuilder output = new StringBuilder();
 
         try {
             URL urlCon = new URL(url);
-            httpCon = (HttpURLConnection)urlCon.openConnection();   // URL 연결
+             Con = (HttpURLConnection)urlCon.openConnection();   // URL 연결
             httpCon.setRequestMethod("POST"); // 요청 방식 선택 (GET, POST)
             httpCon.setRequestProperty("Accept", "application/json");   // 서버의 Response Data를 JSON 형식의 타입으로 요청
             httpCon.setRequestProperty("Content-type", "application/json"); // 서버의 Request Body를 JSON 형식의 타입으로 요청
@@ -241,6 +242,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     else
                         response = "Did not work!";
+
+//                    JSONObject responseJSON = new JSONObject(response);
+//                    Boolean result = (Boolean) responseJSON.get("result");
+//                    String name = (String) responseJSON.get("name");
                 }
                 catch (IOException e) {
                     e.printStackTrace();
