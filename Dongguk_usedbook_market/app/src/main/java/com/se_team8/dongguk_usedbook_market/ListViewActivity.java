@@ -11,7 +11,7 @@ public class ListViewActivity extends AppCompatActivity {
     public ListViewActivity(String listName){
         this.listName=listName;
     }
-    public String toString(){
+    public String toString() {
         return listName;
     }
 

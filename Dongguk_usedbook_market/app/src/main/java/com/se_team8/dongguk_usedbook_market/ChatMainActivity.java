@@ -1,6 +1,6 @@
 package com.se_team8.dongguk_usedbook_market;
 
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +19,6 @@ import com.firebase.client.Firebase;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Juhyeon on 2016-11-24.
@@ -33,18 +31,11 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
     private ArrayList<Message> mMessages;
     private MessagesAdapter mAdapter;
     private String mRecipient;
+    private String mRecipientName;
+    private String mSender;
     private ListView mListView;
-    private Date mLastMessageDate = new Date();
     private String mConvoId;
     private MessageDataSource.MessageListener mListener;
-    List<Message> Message_List;
-    private MessageDataSource datasource;
-    public static SharedPreferences noteprefs;
-    HashMap<String, String> MapListMessages = new HashMap<String, String>();
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,29 +43,34 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_chat_main);
         Firebase.setAndroidContext(this);
 
-        //받는 사람
-        mRecipient = "DUM";
+        Intent intent = getIntent();
+
+        if(intent != null){
+            mRecipient = intent.getStringExtra("RecipientID");
+            mRecipientName=intent.getStringExtra("RecipientName");
+        }
+        //수신자 송신자 아이디 설정
+        //mRecipient = "DUM";
+        mSender = "XYZ";
+       // mRecipient = getIntent().getExtras().toString();
 
         mListView = (ListView) findViewById(R.id.message_list);
         mMessages = new ArrayList<>();
         mAdapter = new MessagesAdapter(mMessages);
         mListView.setAdapter(mAdapter);
 
-        setTitle(mRecipient);
+        setTitle(mRecipientName);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         Button sendMessage = (Button) findViewById(R.id.send_message);
         sendMessage.setOnClickListener(this);
 
-        //받는 사람 DUM  보내는사람 XYZ
-        String[] ids = {"XYZ","-", "DUM"};
+        String[] ids = {mSender,"-", mRecipient};
         Arrays.sort(ids);
-        mConvoId = ids[0] + ids[1] + ids[2];
+        mConvoId = ids[1] + ids[0] + ids[2];
 
         mListener = MessageDataSource.addMessagesListener(mConvoId, this);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
     }
 
     @Override
@@ -85,9 +81,8 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         Message msg = new Message();
         msg.setmDate(new Date());
         msg.setmText(newMessage);
-        msg.setmSender("DUM");
+        msg.setmSender(mRecipient);
         MessageDataSource.saveMessage(msg, mConvoId);
-
     }
 
     @Override
@@ -98,7 +93,7 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        MessageDataSource.stop(mListener);;
+        MessageDataSource.stop(mListener);
     }
 
     private class MessagesAdapter extends ArrayAdapter<Message> {
@@ -118,7 +113,7 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) nameView.getLayoutParams();
 
             int sdk = Build.VERSION.SDK_INT;
-            if (message.getmSender().equals("DUM") == false) {
+            if (message.getmSender().equals(mSender)) {
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
                     nameView.setBackground(getDrawable(R.drawable.bubble_right_green));
                 } else {
@@ -139,5 +134,4 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
             return convertView;
         }
     }
-
 }

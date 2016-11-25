@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class ListName {
     //Properties of Position
+    public int ListID;
     public String listName;
     public ArrayList<String> info1 = new ArrayList<String>();
     public ArrayList<String> info2 = new ArrayList<String>();

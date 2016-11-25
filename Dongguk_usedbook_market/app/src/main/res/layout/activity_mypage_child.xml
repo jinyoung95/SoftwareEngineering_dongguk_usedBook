@@ -13,10 +13,6 @@
         android:layout_height="20dp"
         android:layout_above="@id/info1"
         android:id="@+id/info2" />
-    <Button
-        android:id="@+id/GoDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 <!--
     <ImgageView
         android:layout_width="100dp"
