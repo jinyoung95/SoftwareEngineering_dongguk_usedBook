@@ -59,6 +59,10 @@ public class MypageActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
     }
+    public void onChattingButtonClicked(View view){
+        Intent intent = new Intent(getApplicationContext(), ChatMainActivity.class);
+        startActivity(intent);
+    }
     /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

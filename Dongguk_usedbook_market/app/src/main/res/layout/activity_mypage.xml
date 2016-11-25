@@ -70,12 +70,6 @@
         android:textStyle="normal|bold"
         android:layout_alignStart="@+id/mypageImage" />
 
-    <!-- 마이페이지 뷰 -->
-
-    <!-- 확장 리스트 뷰 목록 ( 구매요청목록 / 판매등록목록 )  -->
-
-    <!-- 홈메뉴로 돌아가기 -->
-
     <ExpandableListView
         android:layout_height="match_parent"
         android:groupIndicator="@null"
@@ -105,6 +99,15 @@
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:id="@+id/chat_button"
+        android:background="@drawable/chat_emo"
+        android:onClick="onChattingButtonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
 
