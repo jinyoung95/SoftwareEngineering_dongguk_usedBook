@@ -50,12 +50,11 @@ public class SearchActivity extends AppCompatActivity{
            public void onClick(View v){
                 getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
-                Toast.makeText(getApplicationContext(), "검색이 완료되었습니다.", Toast.LENGTH_LONG).show();
-
                 String query = search_text.getText().toString();
-            /*HashMap<String, String> params = new HashMap<String, String>();
-            params.put("query", query);*/
 
+                mBookList.clear();  // 리스트 초기화
+
+                // 네이버 오픈 API 이용해서 책 정보 크롤링
                 mAq.ajax(String.format(BOOK_URL, query), XmlDom.class, new AjaxCallback<XmlDom>() {
                     @Override
                     public void callback(String url, XmlDom object, AjaxStatus status) {
@@ -95,6 +94,8 @@ public class SearchActivity extends AppCompatActivity{
         });
 
         listView.setAdapter(adapter); // 리스트뷰에 어댑터 객체 설정
+
+        Toast.makeText(getApplicationContext(), "검색이 완료되었습니다.", Toast.LENGTH_LONG).show();
 
         // 리스트 뷰의 한 아이템 선택했을 때
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
