@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="896653f4e01ebfcf7e404f3d93394bf2233a0d0b">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_66b107127920a005ce5f76495eb5154e9e32e7e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6402db3e56b2b73e8d2469d832389a488e3d1ed8">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_3634d9ea69bc8a6664cf11dd002ba61ac32a3f4d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_4bd37197c91750347212d579b2031e50cfc03722\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_af584e0b30c123a26f9cdd5c7447c2356593d17b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_e95d542a2a576307be9ff34fe296f11cf91f24f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_0679874aa3d4c75674185bc7fcc9385f0d8e4299\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_5725d7f41e677fef64ab93a853b9977c43e4eac0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\JinYoung\AndroidStudioProjects\PostJson\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_b788002119179d6c771759469b8ccbffc4f213eb\classes.dex" />
+    </item>
+
+</items>

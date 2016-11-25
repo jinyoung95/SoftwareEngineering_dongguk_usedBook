@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/ivImg"
+        android:layout_width="88dp"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"/>
+    <LinearLayout
+        android:layout_width="276dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:padding="4dp"/>
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tvPublisher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tvPubdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/tvISBN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            android:textColor="#ccf88107"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,7 @@
+#Tue Nov 22 08:31:07 KST 2016
+base.0=C\:\\Users\\JinYoung\\AndroidStudioProjects\\PostJson\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_3634d9ea69bc8a6664cf11dd002ba61ac32a3f4d
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\JinYoung\\AndroidStudioProjects\\PostJson\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_66b107127920a005ce5f76495eb5154e9e32e7e7\\classes.dex
+base.1=C\:\\Users\\JinYoung\\AndroidStudioProjects\\PostJson\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_66b107127920a005ce5f76495eb5154e9e32e7e7
+file.0=C\:\\Users\\JinYoung\\AndroidStudioProjects\\PostJson\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_3634d9ea69bc8a6664cf11dd002ba61ac32a3f4d\\classes.dex
