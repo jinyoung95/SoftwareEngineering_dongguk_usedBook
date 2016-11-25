@@ -1,8 +1,5 @@
 package com.sample.postjson;
 
-import android.app.Activity;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,16 +43,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnPost = (Button) findViewById(R.id.btnPost);
         tvResponse = (TextView) findViewById(R.id.tvResponse);
-        tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
-
-        // check if you are connected or not
-        if(isConnected()){
-            tvIsConnected.setBackgroundColor(0xFF00CC00);
-            tvIsConnected.setText("You are conncted");
-        }
-        else{
-            tvIsConnected.setText("You are NOT conncted");
-        }
 
         // add click listener to Button "POST"
         btnPost.setOnClickListener(this);
@@ -80,10 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             json = jsonObject.toString();
             //json = String.format("ID=%s&PW=%s",person.getId().toString(),person.getPassword().toString());
 
-            // ** Alternative way to convert Person object to JSON string usin Jackson Lib
-            // ObjectMapper mapper = new ObjectMapper();
-            // json = mapper.writeValueAsString(person);
-
             // Set some headers to inform server about the type of the content
             // 타입설정(application/json) 형식으로 전송 (Request Body 전달시 application/json로 서버에 전달.)
             httpCon.setRequestMethod("POST");
@@ -97,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // InputStream으로 서버로 부터 응답을 받겠다는 옵션.
             httpCon.setDoInput(true);
 
-            //httpCon.connect();
-
+            //연결 확인
 //            byte[] buf = new byte[4096];
 //            ByteArrayOutputStream bos = new ByteArrayOutputStream();
 //            int code = httpCon.getResponseCode();
@@ -118,23 +100,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Request Body에 Data를 담기위해 OutputStream 객체를 생성.
             // 서버에 보낼 객체 생성
             DataOutputStream out = new DataOutputStream(httpCon.getOutputStream());
-           // OutputStream out = httpCon.getOutputStream();
             out.write(json.getBytes("utf-8"));   // 서버에 작성
             out.flush(); //객체 닫기
-           // out.close();
 
             // receive response as inputStream
             try {
                 //서버에서 읽어오는 객체 생성
                 is = httpCon.getInputStream();
-//                DataInputStream in = (DataInputStream) httpCon.getInputStream();
-//                BufferedReader br = new BufferedReader(new InputStreamReader(in));
-//                String inputLine = null;
-//                while((inputLine=br.readLine())!=null){
-//                    System.out.println(inputLine);
-//                }
-                // convert inputstream to string
                 if(is != null)
+                    // convert inputstream to string
                     result = convertInputStreamToString(is);
                 else
                     result = "Did not work!";
@@ -152,17 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         catch (Exception e) {
             Log.d("InputStream", e.getLocalizedMessage());
         }
-
         return result;
-    }
-
-    public boolean isConnected(){
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
-            return true;
-        else
-            return false;
     }
 
     @Override
@@ -177,11 +141,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     HttpAsyncTask httpTask = new HttpAsyncTask(MainActivity.this);
                     //httpTask에 data 넘겨줌
                     httpTask.execute("http://softwareengineeringtp.azurewebsites.net/loginCheck/", etId.getText().toString(), etPassword.getText().toString());
-                    //httpTask.execute("http://hmkcode.appspot.com/jsonservlet", etName.getText().toString(), etCountry.getText().toString(), etTwitter.getText().toString());
                 }
                 break;
         }
-
     }
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
 
@@ -201,8 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             return POST(urls[0],person);
         }
-        // onPostExecute displays the results of the AsyncTask.
-        // 스레드 끝나면 호출됨
+        // doInBackground(메인스레드)가 끝나면 호출됨
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
@@ -241,6 +202,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         inputStream.close();
         return result;
-
     }
 }
