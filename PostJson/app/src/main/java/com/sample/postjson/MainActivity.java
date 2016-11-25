@@ -18,15 +18,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-//http://127.0.0.1:8000/loginCheck/
-//curl -X POST -d "ID=2014112041&PW=apfhddlek!13" http://ussoftwaretp.azurewebsites.net/loginCheck/
+// http://127.0.0.1:8000/loginCheck/
+// curl -X POST -d "ID=2014112041&PW=apfhddlek!13" http://ussoftwaretp.azurewebsites.net/loginCheck/
+// curl -X POST -d "ID=2014112041&PW=apfhddlek!13" http://softwareengineeringtp.azurewebsites.net/loginCheck/
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvIsConnected, tvResponse;
@@ -67,18 +68,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             URL urlCon = new URL(url);
             HttpURLConnection httpCon = (HttpURLConnection)urlCon.openConnection();
-            int code = httpCon.getResponseCode();
-            System.out.println(code);
 
             String json = "";
 
             // build jsonObject
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("id", person.getId());
-            jsonObject.accumulate("password", person.getPassword());
+            jsonObject.put("ID", person.getId().toString());
+            jsonObject.put("PW", person.getPassword().toString());
 
             // convert JSONObject to JSON to String
             json = jsonObject.toString();
+            //json = String.format("ID=%s&PW=%s",person.getId().toString(),person.getPassword().toString());
 
             // ** Alternative way to convert Person object to JSON string usin Jackson Lib
             // ObjectMapper mapper = new ObjectMapper();
@@ -86,23 +86,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             // Set some headers to inform server about the type of the content
             // 타입설정(application/json) 형식으로 전송 (Request Body 전달시 application/json로 서버에 전달.)
+            httpCon.setRequestMethod("POST");
             httpCon.setRequestProperty("Accept", "application/json");
             httpCon.setRequestProperty("Content-type", "application/json");
+            //httpCon.setUseCaches(false);
+            //httpCon.setReadTimeout(2000);
 
             // OutputStream으로 POST 데이터를 넘겨주겠다는 옵션.
             httpCon.setDoOutput(true);
             // InputStream으로 서버로 부터 응답을 받겠다는 옵션.
             httpCon.setDoInput(true);
 
+            //httpCon.connect();
+
+//            byte[] buf = new byte[4096];
+//            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//            int code = httpCon.getResponseCode();
+//            if(code>=400){
+//                bos.reset();
+//                InputStream err = httpCon.getErrorStream();
+//                while(true){
+//                    int readlen = err.read(buf);
+//                    if(readlen<1)
+//                        break;
+//                    bos.write(buf,0,readlen);
+//                }
+//                String output = new String(bos.toByteArray(), "utf-8");
+//                System.err.println(output);
+//            }
+
             // Request Body에 Data를 담기위해 OutputStream 객체를 생성.
             // 서버에 보낼 객체 생성
-            OutputStream os = httpCon.getOutputStream();
-            os.write(json.getBytes("utf-8"));   // 서버에 작성
-            os.flush(); //객체 닫기
+            DataOutputStream out = new DataOutputStream(httpCon.getOutputStream());
+           // OutputStream out = httpCon.getOutputStream();
+            out.write(json.getBytes("utf-8"));   // 서버에 작성
+            out.flush(); //객체 닫기
+           // out.close();
+
             // receive response as inputStream
             try {
                 //서버에서 읽어오는 객체 생성
                 is = httpCon.getInputStream();
+//                DataInputStream in = (DataInputStream) httpCon.getInputStream();
+//                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+//                String inputLine = null;
+//                while((inputLine=br.readLine())!=null){
+//                    System.out.println(inputLine);
+//                }
                 // convert inputstream to string
                 if(is != null)
                     result = convertInputStreamToString(is);
@@ -146,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // call AsynTask to perform network operation on separate thread
                     HttpAsyncTask httpTask = new HttpAsyncTask(MainActivity.this);
                     //httpTask에 data 넘겨줌
-                    httpTask.execute("http://127.0.0.1:8000/loginCheck/", etId.getText().toString(), etPassword.getText().toString());
+                    httpTask.execute("http://softwareengineeringtp.azurewebsites.net/loginCheck/", etId.getText().toString(), etPassword.getText().toString());
                     //httpTask.execute("http://hmkcode.appspot.com/jsonservlet", etName.getText().toString(), etCountry.getText().toString(), etTwitter.getText().toString());
                 }
                 break;
