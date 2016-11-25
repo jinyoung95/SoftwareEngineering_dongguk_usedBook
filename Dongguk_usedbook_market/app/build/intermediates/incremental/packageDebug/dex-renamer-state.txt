@@ -1,4 +1,4 @@
-#Wed Nov 23 23:48:55 KST 2016
+#Fri Nov 25 12:49:19 KST 2016
 base.0=C\:\\Users\\juhye\\AndroidStudioProjects\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_28f2048db9b5ee9755d9c46f5e3a6253b3f02474
 renamed.1=classes2.dex
 renamed.0=classes.dex
