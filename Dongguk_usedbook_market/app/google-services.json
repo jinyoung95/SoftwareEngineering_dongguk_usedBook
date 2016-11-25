@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "508438390457",
+    "firebase_url": "https://ppuu-41926.firebaseio.com",
+    "project_id": "ppuu-41926",
+    "storage_bucket": "ppuu-41926.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508438390457:android:503e931f48b2d4eb",
+        "android_client_info": {
+          "package_name": "com.se_team8.dongguk_usedbook_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508438390457-61udkf6u5269nopqppdvfvvk5u8iik70.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.se_team8.dongguk_usedbook_market",
+            "certificate_hash": "9BAA82D48667499BC2A582E7463196308C021BCC"
+          }
+        },
+        {
+          "client_id": "508438390457-j3g2leg7cretvar2ak2kbc8i8vu2vc8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEGa2vHYaowhQxlTp1o9PN_8JZ7xkt0eA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508438390457-j3g2leg7cretvar2ak2kbc8i8vu2vc8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
