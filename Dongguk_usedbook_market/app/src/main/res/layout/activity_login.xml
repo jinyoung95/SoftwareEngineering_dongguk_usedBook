@@ -10,13 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.se_team8.dongguk_usedbook_market.LoginActivity">
 
-
     <EditText
         android:id="@+id/userIdInput"
         android:layout_height="50dp"
         android:textSize="18dp"
         android:inputType="text"
-        android:hint="아이디"
+        android:hint="?�이??
         android:layout_width="300dp"
         android:layerType="software"
         android:textColorLink="@android:color/holo_blue_dark"
@@ -32,7 +31,6 @@
         android:layout_height="50dp"
         android:text="LOGIN"
         android:elevation="0dp"
-        android:onClick="onLoginClicked"
         android:layout_marginTop="19dp"
         android:background="@android:color/holo_blue_dark"
         android:textColor="@android:color/background_light"
@@ -47,7 +45,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textSize="18dp"
-        android:hint="비밀번호"
+        android:hint="비�?번호"
         android:layout_marginTop="8dp"
         android:layerType="software"
         android:password="false"

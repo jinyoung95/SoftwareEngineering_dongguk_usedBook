@@ -11,7 +11,7 @@
     tools:context="com.se_team8.dongguk_usedbook_market.MypageActivity"
     android:isScrollContainer="true">
 
-    <!-- 프로필 이미지 뷰 -->
+    <!-- ?�로???��?지 �?-->
     <ImageView
         android:id="@+id/defaultProfileImage"
         android:background="@drawable/defaultprofile"
@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="80dp" />
 
-    <!-- 프로필 이름 -->
+    <!-- ?�로???�름 -->
     <TextView
         android:id="@+id/studentName"
         android:layout_height="30dp"
@@ -34,7 +34,7 @@
         android:layout_alignStart="@+id/defaultProfileImage"
         android:layout_alignEnd="@+id/mypageImage" />
 
-    <!-- 프로필 아이디 -->
+    <!-- ?�로???�이??-->
     <TextView
         android:id="@+id/studentID"
         android:text="2014112019"
@@ -47,7 +47,7 @@
         android:layout_alignStart="@+id/studentName"
         android:layout_alignEnd="@+id/mypageImage" />
 
-    <!-- 이름 :  -->
+    <!-- ?�름 :  -->
     <TextView
         android:text="Name"
         android:layout_width="wrap_content"
@@ -69,12 +69,6 @@
         android:layout_alignBottom="@+id/studentID"
         android:textStyle="normal|bold"
         android:layout_alignStart="@+id/mypageImage" />
-
-    <!-- 마이페이지 뷰 -->
-
-    <!-- 확장 리스트 뷰 목록 ( 구매요청목록 / 판매등록목록 )  -->
-
-    <!-- 홈메뉴로 돌아가기 -->
 
     <ExpandableListView
         android:layout_height="match_parent"
@@ -105,6 +99,16 @@
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:id="@+id/chat_button"
+        android:background="@drawable/chat_emo"
+        android:onClick="onChattingButtonClicked"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
 
