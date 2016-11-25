@@ -58,6 +58,13 @@ public class MypageActivity extends AppCompatActivity {
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
+<<<<<<< HEAD:Dongguk_usedbook_market/app/src/main/java/com/se_team8/dongguk_usedbook_market/MypageActivity.java
+=======
+    }
+    public void onChattingButtonClicked(View view){
+        Intent intent = new Intent(getApplicationContext(), ChatMainActivity.class);
+        startActivity(intent);
+>>>>>>> juhyeonKim:Dongguk_usedbook_market/app/src/main/java/com/se_team8/dongguk_usedbook_market/MypageActivity.java
     }
     /*
     @Override
