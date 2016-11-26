@@ -34,4 +34,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), BuyerSearchActivity.class);
         startActivity(intent);
     }
+
+    public void processIntent(){
+        Bundle bundle = getIntent().getExtras();
+
+
+    }
 }

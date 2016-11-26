@@ -1,4 +1,4 @@
-package com.example.eomji.dongguk_usedbook_marcket;
+package com.se_team8.dongguk_usedbook_market.dongguk_usedbook_market;
 
 import org.junit.Test;
 

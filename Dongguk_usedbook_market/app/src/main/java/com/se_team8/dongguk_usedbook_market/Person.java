@@ -6,6 +6,8 @@ package com.se_team8.dongguk_usedbook_market;
 public class Person {
     private String id;
     private String password;
+    private String name;
+    private String overlap;
 
     public String getId() {
         return id;
@@ -23,8 +25,24 @@ public class Person {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOverlap() {
+        return overlap;
+    }
+
+    public void setOverlap(String overlap) {
+        this.overlap = overlap;
+    }
+
     @Override
     public String toString() {
-        return "ID=" + id + ", PW=" + password;
+        return "ID=" + id + ", PW=" + password +", name=" + name+", overlap=" + overlap;
     }
 }
