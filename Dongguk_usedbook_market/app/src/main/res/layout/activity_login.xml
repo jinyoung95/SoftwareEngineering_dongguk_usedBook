@@ -31,6 +31,7 @@
         android:layout_height="50dp"
         android:text="LOGIN"
         android:elevation="0dp"
+        android:onClick="onLoginClicked"
         android:layout_marginTop="19dp"
         android:background="@android:color/holo_blue_dark"
         android:textColor="@android:color/background_light"

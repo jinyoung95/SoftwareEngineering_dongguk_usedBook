@@ -17,27 +17,30 @@ public class HomeActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
     }
-    public void onRegisterBtnClicked(View view){
-        Intent intent = new Intent(getApplicationContext(), SellerRegisterActivity.class);
+
+    // 도서 검색 클릭
+    public void onBuyerSearchButtonClicked(View view){
+        Intent intent = new Intent(getApplicationContext(), BuyerSearchActivity.class);
         startActivity(intent);
     }
+
+    // 판매 등록 클릭
+    public void onSellerSearchBtnClicked(View view){
+        Intent intent = new Intent(getApplicationContext(), SellerSearchActivity.class);
+        startActivity(intent);
+    }
+
+    // 마이페이지 클릭
     public void onMypageButtonClicked(View v){
         Intent mypageIntent = new Intent(getApplicationContext(),MypageActivity.class);
         startActivity(mypageIntent);
     }
+
+    // 로그아웃 클릭
     public void onLogoutButtonClicked(View v){
         Toast.makeText(getApplicationContext(),"로그아웃합니다.", Toast.LENGTH_LONG).show();
         Intent logoutIntent = new Intent(getApplicationContext(),LoginActivity.class);
         startActivity(logoutIntent);
     }
-    public void onSearchButtonClicked(View view){
-        Intent intent = new Intent(getApplicationContext(), BuyerSearchActivity.class);
-        startActivity(intent);
-    }
 
-    public void processIntent(){
-        Bundle bundle = getIntent().getExtras();
-
-
-    }
 }

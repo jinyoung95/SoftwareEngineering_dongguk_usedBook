@@ -1,7 +1,6 @@
 package com.se_team8.dongguk_usedbook_market;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,97 +9,132 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class BuyerSearchActivity extends AppCompatActivity {
+import com.androidquery.AQuery;
 
-    ListView listView1;
-    IconTextListAdapter adapter;
+import java.util.ArrayList;
 
+/**
+ * Created by JinYoung on 2016-11-26.
+ */
+
+// bookId=책아이디  http://softwareengineeringtp.azurewebsites.net/appllication/book/
+// bookName=검색할책이름  http://softwareengineeringtp.azurewebsites.net/search/book/
+public class BuyerSearchActivity extends AppCompatActivity{
+    private AQuery aq = new AQuery(this);
+    private ArrayList<BookVO> mBookList = new ArrayList<BookVO>();
     private EditText search_text;
+    private BookAdaptor adapter;
+    private ListView listView;
+    private BookVO book;
+
+    public static String url = "http://softwareengineeringtp.azurewebsites.net/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_search);
+        setContentView(R.layout.activity_search);
 
-        // 타이틀을 안보이도록 함
-        getSupportActionBar().hide();
-        /*
-        // 왼쪽 화살표를 보여주는 위젯 객체 참조
-        PreviousButton arrowLeftBtn = (PreviousButton)findViewById(R.id.arrowLeftBtn);
+        search_text = (EditText) findViewById(R.id.searchText);
+        listView = (ListView) findViewById(R.id.listView);
 
-        // 리소스의 이미지를 직접 가져와서 설정하는 방식
-        Resources res = getResources();
-        BitmapDrawable curDrawable = (BitmapDrawable) res.getDrawable(R.drawable.arrow_left);
-        Bitmap iconBitmap = curDrawable.getBitmap();
-        BitmapDrawable curClickedDrawable = (BitmapDrawable) res.getDrawable(R.drawable.arrow_left_clicked);
-        Bitmap iconClickedBitmap = curClickedDrawable.getBitmap();
-        arrowLeftBtn.setIconBitmap(iconBitmap, iconClickedBitmap);
+        listView.setEmptyView(findViewById(R.id.empty)); // 검색 결과 없음 표시
 
-        // 이벤트 처리
-        arrowLeftBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // 화면을 닫음
-                finish();
-            }
-        });
-        */
-        /*
-        String titleText = "도서검색";
-        // 타이틀을 위한 버튼에 텍스트 설정
-        BuyerSearchTitleButton titleBtn = (BuyerSearchTitleButton)findViewById(R.id.titleBtn);
-        titleBtn.setTitleText(titleText);
-        titleBtn.setDefaultSize(32F);
-        */
+        adapter = new BookAdaptor(this, mBookList); //어댑터 객체 생성
 
-        // 리스트뷰 객체 참조
-        listView1 = (ListView) findViewById(R.id.listView1);
+        listView.setAdapter(adapter); // 리스트뷰에 어댑터 객체 설정
 
-        // 어댑터 객체 생성
-        adapter = new IconTextListAdapter(this);
-
-        // 아이템 데이터 만들기
-        Resources res = getResources();
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon05), "컴퓨터시스템구조론\n(정가 36,000원)", "판매자: 문주원", "10,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon06), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon05), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon06), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon05), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon06), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon05), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon06), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon05), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-        adapter.addItem(new IconTextItem(res.getDrawable(R.drawable.icon06), "컴퓨터네트워크\n(정가 30,000원)", "판매자: 김주현", "14,000 원"));
-
-        // 리스트뷰에 어댑터 설정
-        listView1.setAdapter(adapter);
-
-        // 새로 정의한 리스너로 객체를 만들어 설정
-        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        // 구매요청할 책 선택 -> 해당 도서의 세부정보 페이지로 넘어간다
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                IconTextItem curItem = (IconTextItem) adapter.getItem(position);
-                String[] curData = curItem.getData();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                BookVO curItem = (BookVO) adapter.getItem(position);
 
-                Toast.makeText(getApplicationContext(), "Selected : " + curData[0], Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Selected", Toast.LENGTH_LONG).show();
+                BookVO Item = (BookVO) adapter.getItem(position); // 선택한 item의 position 받기
+                Intent intent = new Intent(BuyerSearchActivity.this, BookDetailsActivity.class); // intent 생성
 
-                // DB 연동해서 데이터 받아온 값을 출력하게 수정해야함!!!
-                Intent intent = new Intent(getApplicationContext(), BookDetailsActivity.class);
-                startActivity(intent);
+                intent.putExtra("bookTitle", curItem.getTitle());
+                intent.putExtra("bookAuthor", curItem.getAuthor());
+                intent.putExtra("bookCover", curItem.getImgUrl());
+                intent.putExtra("bookISBN", curItem.getIsbn());
+                intent.putExtra("bookPrice", curItem.getPrice());
+                intent.putExtra("bookPubdate", curItem.getPubdate());
+                intent.putExtra("bookPublisher", curItem.getPublisher());
+
+                startActivity(intent); // 액티비티 실행
             }
         });
     }
 
+    public void onSearchButtonClicked(View view){
+        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
+
+        String query = search_text.getText().toString();
+
+        mBookList.clear();  // 리스트 초기화
+
+        //DB에 저장된 판매등록된 목록 불러오기
+
+//        AsyncTask.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        });
+//        @Override
+//        public void onClick(View v) {
+//            task = new BackgroundTask();
+//            task.execute();
+//        }
+//
+//        private String request(String urlStr) {
+//            StringBuilder output = new StringBuilder();
+//            try {
+//                URL url = new URL(urlStr);
+//                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+//                if (conn != null) {
+//                    conn.setConnectTimeout(10000);
+//                    conn.setRequestMethod("GET");
+//                    conn.setDoInput(true);
+//                    conn.setDoOutput(true);
+//
+//                    int resCode = conn.getResponseCode();
+//                    if (resCode == HttpURLConnection.HTTP_OK) {
+//                        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream())) ;
+//                        String line = null;
+//                        while(true) {
+//                            line = reader.readLine();
+//                            if (line == null) {
+//                                break;
+//                            }
+//                            output.append(line + "\n");
+//                        }
+//
+//                        reader.close();
+//                        conn.disconnect();
+//                    }
+//                }
+//            } catch(Exception ex) {
+//                Log.e("SampleHTTP", "Exception in processing response.", ex);
+//                ex.printStackTrace();
+//            }
+//
+//            return output.toString();
+//        }
+
+
+        adapter.notifyDataSetChanged(); //변경된 모델 데이터를 리스트 뷰에게 알려줘서 뷰를 갱신
+
+        Toast.makeText(getApplicationContext(), "검색이 완료되었습니다.", Toast.LENGTH_LONG).show();
+    }
+
+    // 홈 버튼 클릭 -> 홈으로 이동
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
     }
-
-    //버튼을 누르면 책이 검색된다. (판매자가 등록한 책들 중에서)
-    public void onSearchButtonClicked(View view){
-        //String search_data = search_text.getText().toString();
-
-        //search_data를 받아서 책을 검색하는 함수
-        //검색한 책들을 아래 화면에 보여준다.
-        //Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
-        //startActivity(intent);
-    }
 }
+
+
+
+
