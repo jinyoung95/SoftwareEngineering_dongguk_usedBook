@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -30,11 +29,21 @@ public class SellerSearchActivity extends AppCompatActivity{
     private EditText search_text;
     private BookAdaptor adapter;
     private ListView listView;
+    private String userName, userID, token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            // LoginActivity로부터 넘어온 데이터를 꺼낸다
+            userName = intent.getStringExtra("username");
+            userID = intent.getStringExtra("uerID");
+            token = intent.getStringExtra("token");
+        }
 
         search_text = (EditText) findViewById(R.id.searchText);
         listView = (ListView) findViewById(R.id.listView);
@@ -42,7 +51,6 @@ public class SellerSearchActivity extends AppCompatActivity{
         listView.setEmptyView(findViewById(R.id.empty)); // 검색 결과 없음 표시
 
         adapter = new BookAdaptor(this, mBookList); //어댑터 객체 생성
-
         listView.setAdapter(adapter); // 리스트뷰에 어댑터 객체 설정
 
         // 판매등록할 책 선택 -> 판매등록 페이지로 넘어간다
@@ -54,6 +62,9 @@ public class SellerSearchActivity extends AppCompatActivity{
                 BookVO curItem = (BookVO) adapter.getItem(position); // 선택한 item의 position 받기
                 Intent intent = new Intent(SellerSearchActivity.this, SellerRegisterActivity.class); // intent 생성
 
+                intent.putExtra("username", userName);
+                intent.putExtra("userID", userID);
+                intent.putExtra("token", token);
                 intent.putExtra("bookTitle", curItem.getTitle());
                 intent.putExtra("bookAuthor", curItem.getAuthor());
                 intent.putExtra("bookCover", curItem.getImgUrl());
@@ -117,6 +128,9 @@ public class SellerSearchActivity extends AppCompatActivity{
     // 홈 버튼 클릭 -> 홈으로 이동
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        userName = intent.getStringExtra("username");
+        userID = intent.getStringExtra("uerID");
+        token = intent.getStringExtra("token");
         startActivity(intent);
     }
 }

@@ -9,31 +9,49 @@ import android.widget.Toast;
  * Created by Juhyeon on 2016-11-10.
  */
 public class HomeActivity extends AppCompatActivity {
+    private String userName, userID, token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getSupportActionBar().hide();
+        getSupportActionBar().hide(); // 타이틀을 안보이도록 함
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            // LoginActivity로부터 넘어온 데이터를 꺼낸다
+            userName = intent.getStringExtra("username");
+            userID = intent.getStringExtra("uerID");
+            token = intent.getStringExtra("token");
+        }
     }
 
     // 도서 검색 클릭
     public void onBuyerSearchButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), BuyerSearchActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     // 판매 등록 클릭
     public void onSellerSearchBtnClicked(View view){
         Intent intent = new Intent(getApplicationContext(), SellerSearchActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     // 마이페이지 클릭
     public void onMypageButtonClicked(View v){
-        Intent mypageIntent = new Intent(getApplicationContext(),MypageActivity.class);
-        startActivity(mypageIntent);
+        Intent intent = new Intent(getApplicationContext(),MypageActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        startActivity(intent);
     }
 
     // 로그아웃 클릭
@@ -42,5 +60,4 @@ public class HomeActivity extends AppCompatActivity {
         Intent logoutIntent = new Intent(getApplicationContext(),LoginActivity.class);
         startActivity(logoutIntent);
     }
-
 }

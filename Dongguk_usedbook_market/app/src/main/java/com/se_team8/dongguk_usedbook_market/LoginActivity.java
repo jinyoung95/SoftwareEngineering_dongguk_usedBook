@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
         // 입력한 값 받아온다
         etId = (EditText) findViewById(R.id.userIdInput);
@@ -252,7 +253,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-
         switch(view.getId()){
             case R.id.loginButton:
                 if(!validate())
@@ -402,6 +402,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    /** 입력텍스트를 모두 입력했는지 확인 */
     private boolean validate(){
         if(etId.getText().toString().trim().equals(""))
             return false;
@@ -411,6 +412,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return true;
     }
 
+    /** InputStream을 String으로 변환 (서버에서 받은 값을 String으로 변환) */
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
@@ -422,13 +424,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return result;
     }
 
+    /** 연결이 제대로 이루어졌는지 확인하고 그렇지 않다면 오류메시지 출력 */
     private static void checkConnection(HttpURLConnection httpCon){
         //연결 확인
         byte[] buf = new byte[4096];
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         int code = 0;
         try {
-            code = httpCon.getResponseCode();
+            code = httpCon.getResponseCode(); // 실질적으로 웹서버에 접속하여 요청을 보내고 응답을 수신하는 시점
             if(code>=400){
                 bos.reset();
                 InputStream err = httpCon.getErrorStream();
