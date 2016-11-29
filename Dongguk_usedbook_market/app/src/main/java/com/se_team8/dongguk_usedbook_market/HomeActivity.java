@@ -22,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         if (intent != null) {
             // LoginActivity로부터 넘어온 데이터를 꺼낸다
             userName = intent.getStringExtra("username");
-            userID = intent.getStringExtra("uerID");
+            userID = intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
         }
     }

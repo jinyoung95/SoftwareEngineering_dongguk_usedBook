@@ -1,4 +1,4 @@
-﻿package com.se_team8.dongguk_usedbook_market;
+package com.se_team8.dongguk_usedbook_market;
 
 import android.content.Intent;
 import android.os.AsyncTask;

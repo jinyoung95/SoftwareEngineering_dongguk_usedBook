@@ -12,9 +12,13 @@ public class ListName {
     public String listName;
     public ArrayList<String> info1 = new ArrayList<String>();
     public ArrayList<String> info2 = new ArrayList<String>();
+    public ArrayList<String> info3 = new ArrayList<String>();
 
     public ListName(String listName){
         this.listName = listName;
+    }
+    public int getListID(){
+        return ListID;
     }
 
     public String toString () {

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -15,6 +14,8 @@ import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.util.XmlDom;
+import com.se_team8.dongguk_usedbook_market.adaptor.BookAdaptor;
+import com.se_team8.dongguk_usedbook_market.domain.BookVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,12 +37,13 @@ public class SellerSearchActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
         Intent intent = getIntent();
         if (intent != null) {
-            // LoginActivity로부터 넘어온 데이터를 꺼낸다
+            // HomeActivity로부터 넘어온 데이터를 꺼낸다
             userName = intent.getStringExtra("username");
-            userID = intent.getStringExtra("uerID");
+            userID = intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
         }
 
@@ -79,59 +81,70 @@ public class SellerSearchActivity extends AppCompatActivity{
     }
 
     // 검색 버튼 클릭
-    public void onSearchButtonClicked(View view){
+    public void onSearchButtonClicked(View view) {
         String query = search_text.getText().toString();
-
-        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
         mBookList.clear();  // 리스트 초기화
 
-        // 네이버 오픈 API 이용해서 책 정보를 크롤링
-        mAq.ajax(String.format(BOOK_URL, query), XmlDom.class, new AjaxCallback<XmlDom>() {
-            @Override
-            public void callback(String url, XmlDom object, AjaxStatus status) {
-                Log.d("LDK", "url: " + url);
-                Log.d("LDK", "status code: " + status.getCode());
+        if(!validate()) {
+            Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();
+        } else {
+            // 네이버 오픈 API 이용해서 책 정보를 크롤링
+            mAq.ajax(String.format(BOOK_URL, query), XmlDom.class, new AjaxCallback<XmlDom>() {
+                @Override
+                public void callback(String url, XmlDom object, AjaxStatus status) {
+                    Log.d("LDK", "url: " + url);
+                    Log.d("LDK", "status code: " + status.getCode());
 
-                // getElementsByTagName(tag) 와 동일, 노드리스트를 리턴받는다.
-                List<XmlDom> itemList =object.tags("item");
-                for(XmlDom item : itemList) {
-                    //title 노드를 리턴
-                    XmlDom titleNode = item.tag("title");
-                    String strTitle = titleNode.text(); // 텍스트노드의 텍스트를 가져옴.
-                    String strAuthor = item.tag("author").text();
-                    String strImg = item.tag("image").text();
-                    String strPublisher = item.tag("publisher").text();
-                    String strPubdate = item.tag("pubdate").text();
-                    String strISBN = item.tag("isbn").text();
-                    String strPrice = item.tag("price").text();
+                    // getElementsByTagName(tag) 와 동일, 노드리스트를 리턴받는다.
+                    List<XmlDom> itemList = object.tags("item");
+                    for (XmlDom item : itemList) {
+                        //title 노드를 리턴
+                        XmlDom titleNode = item.tag("title");
+                        String strTitle = titleNode.text(); // 텍스트노드의 텍스트를 가져옴.
+                        String strAuthor = item.tag("author").text();
+                        String strImg = item.tag("image").text();
+                        String strPublisher = item.tag("publisher").text();
+                        String strPubdate = item.tag("pubdate").text();
+                        String strISBN = item.tag("isbn").text();
+                        String strPrice = item.tag("price").text();
+                        String strSellerPrice = null;
 
-                    BookVO book = new BookVO();
-                    book.setTitle(strTitle);
-                    book.setAuthor(strAuthor);
-                    book.setImgUrl(strImg);
-                    book.setPublisher(strPublisher);
-                    book.setPubdate(strPubdate);
-                    book.setIsbn(strISBN);
-                    book.setPrice(strPrice);
-                    mBookList.add(book);
+                        BookVO book = new BookVO();
+                        book.setTitle(strTitle);
+                        book.setAuthor(strAuthor);
+                        book.setImgUrl(strImg);
+                        book.setPublisher(strPublisher);
+                        book.setPubdate(strPubdate);
+                        book.setIsbn(strISBN);
+                        book.setPrice(strPrice);
+                        book.setSellerPrice(strSellerPrice);
+                        mBookList.add(book);
+                    }
+                    adapter.notifyDataSetChanged(); //  변경된 모델 데이터를 리스트 뷰에게 알려줘서 뷰를 갱신
+
                 }
-                adapter.notifyDataSetChanged(); //  변경된 모델 데이터를 리스트 뷰에게 알려줘서 뷰를 갱신
+            }.header("X-Naver-Client-Id", "XZl1i29Qk4zL8M5ZUn6D")
+                    .header("X-Naver-Client-Secret", "NhKbWMdOPT"));
 
-            }
-        }.header("X-Naver-Client-Id", "XZl1i29Qk4zL8M5ZUn6D")
-                .header("X-Naver-Client-Secret", "NhKbWMdOPT"));
+            Toast.makeText(getApplicationContext(), "검색이 완료되었습니다", Toast.LENGTH_LONG).show();
+        }
+    }
 
-        Toast.makeText(getApplicationContext(), "검색이 완료되었습니다", Toast.LENGTH_LONG).show();
+    // 입력텍스트를 모두 입력했는지 확인
+    private boolean validate(){
+        if(search_text.getText().toString().trim().equals(""))
+            return false;
+        else
+            return true;
     }
 
     // 홈 버튼 클릭 -> 홈으로 이동
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 }
-
-
-
-

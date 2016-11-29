@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.firebase.client.Firebase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -32,10 +31,12 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
     private MessagesAdapter mAdapter;
     private String mRecipient;
     private String mRecipientName;
-    private String mSender;
+  //  private String mSender;
     private ListView mListView;
     private String mConvoId;
     private MessageDataSource.MessageListener mListener;
+    public String username;
+    public String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +47,11 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
 
         if(intent != null){
+            username = intent.getStringExtra("username");
+            userID=intent.getStringExtra("userID");
             mRecipient = intent.getStringExtra("RecipientID");
             mRecipientName=intent.getStringExtra("RecipientName");
         }
-        //수신자 송신자 아이디 설정
-        //mRecipient = "DUM";
-        mSender = "XYZ";
-       // mRecipient = getIntent().getExtras().toString();
 
         mListView = (ListView) findViewById(R.id.message_list);
         mMessages = new ArrayList<>();
@@ -66,11 +65,10 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         Button sendMessage = (Button) findViewById(R.id.send_message);
         sendMessage.setOnClickListener(this);
 
-        String[] ids = {mSender,"-", mRecipient};
-        Arrays.sort(ids);
-        mConvoId = ids[1] + ids[0] + ids[2];
-
-        mListener = MessageDataSource.addMessagesListener(mConvoId, this);
+        String[] ids = {userID,"-", mRecipient};
+        //Arrays.sort(ids);
+        mConvoId = userID;
+        mListener = MessageDataSource.addMessagesListener(mConvoId,mRecipient, this);
     }
 
     @Override
@@ -82,7 +80,7 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         msg.setmDate(new Date());
         msg.setmText(newMessage);
         msg.setmSender(mRecipient);
-        MessageDataSource.saveMessage(msg, mConvoId);
+        MessageDataSource.saveMessage(msg, mConvoId,mRecipient);
     }
 
     @Override
@@ -113,7 +111,7 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) nameView.getLayoutParams();
 
             int sdk = Build.VERSION.SDK_INT;
-            if (message.getmSender().equals(mSender)) {
+            if (message.getmSender().equals(userID)) {
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
                     nameView.setBackground(getDrawable(R.drawable.bubble_right_green));
                 } else {

@@ -1,6 +1,6 @@
 package com.se_team8.dongguk_usedbook_market;
 
-import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,7 +13,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.androidquery.AQuery;
+import com.se_team8.dongguk_usedbook_market.domain.BookVO;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -23,7 +27,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.json.JSONObject;
 
 /**
  * Created by Jinyoung on 2016-11-26.
@@ -31,7 +34,7 @@ import org.json.JSONObject;
 
 public class SellerRegisterActivity extends AppCompatActivity{
     private String title, author, publisher, price, pubdate, ISBN, cover;
-    private String sbSellerName, sbPrice, sbCourse, sbProfessor, sbMoreDetails, sbStatus;
+    private String sbPrice, sbCourse, sbProfessor, sbMoreDetails, sbStatus;
     private TextView tvSellerName, tvTitle, tvAuthor, tvPublisher, tvPubdate, tvPrice, tvISBN;
     private EditText etPrice, etCourse, etProfessor, etMoreDetails;
     private RadioGroup rgStatus;
@@ -40,12 +43,12 @@ public class SellerRegisterActivity extends AppCompatActivity{
     private BookVO book;
     private static String strJson = "";
     private static String userName, userID, token;
+    public static String mainURL = "http://softwareengineeringtp.azurewebsites.net/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_register);
-
         getSupportActionBar().hide();   // 타이틀을 안보이도록 함
 
         // 선택한 도서의 세부정보 보여주기
@@ -55,7 +58,7 @@ public class SellerRegisterActivity extends AppCompatActivity{
         if (intent != null) {
             // SellerSearchActivity로부터 넘어온 데이터를 꺼낸다
             userName = intent.getStringExtra("username");
-            userID = intent.getStringExtra("uerID");
+            userID = intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
             title = intent.getStringExtra("bookTitle");
             author = intent.getStringExtra("bookAuthor");
@@ -81,9 +84,9 @@ public class SellerRegisterActivity extends AppCompatActivity{
         tvISBN.setText(ISBN);
         aq.id(R.id.ivSrBookCover).image(cover);
 
-        // 판매자 이름
+        // 판매자 학번
         tvSellerName = (TextView) findViewById(R.id. tvSrSellerName);
-        tvSellerName.setText(userName);
+        tvSellerName.setText(userID);
     }
 
     // 판매등록 버튼 클릭
@@ -98,20 +101,20 @@ public class SellerRegisterActivity extends AppCompatActivity{
         sbCourse = etCourse.getText().toString();
         sbProfessor = etProfessor.getText().toString();
         sbMoreDetails = etMoreDetails.getText().toString();
-
         // 라디오 버튼 중 선택된 상태 저장
         rgStatus = (RadioGroup) findViewById(R.id.rgSrStatusButton);
         rb = (RadioButton) findViewById(rgStatus.getCheckedRadioButtonId());
-        sbStatus = rb.getText().toString();
 
         // 공란이 없으면 DB에 판매등록 정보를 저장
         if (!validate()) {
             Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();
         }
-        else {
-            SellerRegisterActivity.HttpAsyncTask task = new HttpAsyncTask(this);
+        else{
+            sbStatus = rb.getText().toString();
+
+            HttpAsyncTask task = new HttpAsyncTask(this);
             //httpTask에 로그인 data 넘겨줌
-            task.execute("http://softwareengineeringtp.azurewebsites.net/register/book/", tvTitle.getText().toString(), tvAuthor.getText().toString(), ISBN, price, tvPublisher.getText().toString(), pubdate, cover, sbCourse, sbProfessor, sbPrice, sbMoreDetails, sbStatus);
+            task.execute(mainURL+"/register/book/", tvTitle.getText().toString(), tvAuthor.getText().toString(), ISBN, price, tvPublisher.getText().toString(), pubdate, cover, sbCourse, sbProfessor, sbPrice, sbMoreDetails, sbStatus);
         }
     }
 
@@ -144,15 +147,18 @@ public class SellerRegisterActivity extends AppCompatActivity{
             // Set some headers to inform server about the type of the content
             httpCon.setRequestMethod("POST");
             httpCon.setRequestProperty("Authorization","JWT "+ token); // 헤더에 token값 전달
+            httpCon.setRequestProperty("Accept", "application/json");
+            httpCon.setRequestProperty("Content-type", "application/json");
 
             httpCon.setDoOutput(true);  // OutputStream으로 POST 데이터를 넘겨주겠다는 옵션
             httpCon.setDoInput(true);   // InputStream으로 서버로부터 응답을 받겠다는 옵션.
 
-            // Request Body에 Data를 담기위해 OutputStream 객체를 생성.
+            // checkConnection(httpCon);
             // 서버에 보낼 객체 생성
             DataOutputStream out = new DataOutputStream(httpCon.getOutputStream());
             out.write(json.getBytes("UTF-8")); // 서버에 쓰기
             out.flush(); // 스트림 버퍼 비우기
+            // checkConnection(httpCon);
 
             // receive response as inputStream
             try {
@@ -178,8 +184,17 @@ public class SellerRegisterActivity extends AppCompatActivity{
     // 판매등록 저장을 위한 스레드
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         private SellerRegisterActivity mainAct;
+        ProgressDialog dialog;
+
         HttpAsyncTask(SellerRegisterActivity mainActivity) {
             this.mainAct = mainActivity;
+        }
+
+        protected  void onPreExecute(){
+            super.onPreExecute();
+
+            dialog = new ProgressDialog(mainAct);
+            dialog.show();
         }
 
         // 스레드의 메인부분 (데이터를 처리하는 부분)
@@ -215,18 +230,18 @@ public class SellerRegisterActivity extends AppCompatActivity{
                         Toast.makeText(mainAct, "등록이 완료되었습니다.", Toast.LENGTH_LONG).show();
 
                         // 도서검색 화면으로 이동
-                        Intent intent = new Intent(getApplicationContext(), SellerSearchActivity.class);
-                        startActivity(intent);
+                        finish(); finish();
                     }
                 }
             });
         }
     }
 
+    // 공란이 있는지 확인
     private boolean validate(){
         if(sbPrice.trim().equals(""))
             return false;
-        else if(sbStatus.trim().equals(""))
+        else if(rb==null)
             return false;
         else if(sbCourse.trim().equals(""))
             return false;
@@ -238,6 +253,7 @@ public class SellerRegisterActivity extends AppCompatActivity{
             return true;
     }
 
+    // InputStream을 String으로 변환 (서버에서 받은 값을 String으로 변환)
     private static String convertInputStreamToString(InputStream inputStream) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line = "";
@@ -249,15 +265,42 @@ public class SellerRegisterActivity extends AppCompatActivity{
         return result;
     }
 
-    // 목록 버튼 클릭 -> 판매등록 목록으로 이동
-    public void onRegListBtnClicked(View view){
-       // Intent intent = new Intent(getApplicationContext(), Activity.class);
-       // startActivity(intent);
+    // 연결이 제대로 이루어졌는지 확인하고 그렇지 않다면 오류메시지 출력
+    private static void checkConnection(HttpURLConnection httpCon){
+        //연결 확인
+        byte[] buf = new byte[4096];
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        int code = 0;
+        try {
+            code = httpCon.getResponseCode();
+            if(code>=400){
+                bos.reset();
+                InputStream err = httpCon.getErrorStream();
+                while(true){
+                    int readlen = err.read(buf);
+                    if(readlen<1)
+                        break;
+                    bos.write(buf,0,readlen);
+                }
+                String output = new String(bos.toByteArray(), "utf-8");
+                System.err.println(output);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    // 홈 버튼 클릭 -> 홈으로 이동
+    // 목록 버튼 클릭 -> 도서검색 화면으로 이동
+    public void onRegListBtnClicked(View view){
+        finish();
+    }
+
+    // 홈 버튼 클릭 -> 홈 화면으로 이동
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 }

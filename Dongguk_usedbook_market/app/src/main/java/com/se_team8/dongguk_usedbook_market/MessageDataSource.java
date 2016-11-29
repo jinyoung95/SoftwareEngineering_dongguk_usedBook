@@ -20,22 +20,31 @@ public class MessageDataSource {
     private static final String TAG="MessageDataSource";
     private static final String COLUMN_TEXT = "text";
     private static final String COLUMN_SENDER="sender";
-    private static final String mSender="XYZ";
+    private static final String COLUMN_READ="read";
+    private String mSender;
 
-    public static void saveMessage(Message message, String convoId){
+    public static void saveMessage(Message message, String convoId, String mRecipient){
         Date date = message.getmDate();
         String key = sDateFormat.format(date);
         HashMap<String, String> msg = new HashMap<>();
         msg.put(COLUMN_TEXT,message.getmText());
-        msg.put(COLUMN_SENDER, mSender);
-        sRef.child(convoId).child(key).setValue(msg);
+       // msg.put(COLUMN_SENDER, mSender);
+        msg.put(COLUMN_SENDER, convoId);
+        msg.put(COLUMN_READ,"0");
+        sRef.child(convoId).child(mRecipient).child(key).setValue(msg);
+        sRef.child(mRecipient).child(convoId).child(key).setValue(msg);
+
+        msg.put(COLUMN_READ,"1");
+        sRef.child(convoId).child(mRecipient).child(key).setValue(msg);
     }
 
-    public static MessageListener addMessagesListener(String convoId, final MessagesCallbacks callbacks) {
+    public static MessageListener addMessagesListener(String convoId, String mRecipient, final MessagesCallbacks callbacks) {
         MessageListener listener = new MessageListener(callbacks);
-        sRef.child(convoId).addChildEventListener(listener);
+        sRef.child(convoId).child(mRecipient).addChildEventListener(listener);
         return listener;
-
+    }
+    public Firebase getsRef(){
+        return sRef;
     }
 
     public static void stop(MessageListener listener) {
