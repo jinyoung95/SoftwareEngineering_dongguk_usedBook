@@ -8,10 +8,11 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="23" />
 
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
         android:name="com.se_team8.dongguk_usedbook_market.permission.C2D_MESSAGE"
@@ -36,10 +37,16 @@
         <activity android:name="com.se_team8.dongguk_usedbook_market.MypageActivity" />
         <activity android:name="com.se_team8.dongguk_usedbook_market.SellerRegisterActivity" />
         <activity android:name="com.se_team8.dongguk_usedbook_market.ResultsActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.ChatMainActivity" >
+        </activity>
         <activity android:name="com.se_team8.dongguk_usedbook_market.BookDetailsActivity" >
         </activity>
         <activity android:name="com.se_team8.dongguk_usedbook_market.BuyerSearchActivity" />
 
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -49,6 +56,11 @@
             android:authorities="com.se_team8.dongguk_usedbook_market.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"

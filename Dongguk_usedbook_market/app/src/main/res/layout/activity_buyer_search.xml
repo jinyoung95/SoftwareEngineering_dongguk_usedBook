@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_buyer_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="16dp"
+    tools:context="com.se_team8.dongguk_usedbook_market.BuyerSearchActivity">
+
+    <!-- 홈 버튼 -->
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:id="@+id/home_button"
+        android:background="@drawable/home_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onHomeButtonClicked" />
+
+    <!-- 도서검색메뉴 -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_page"
+        android:id="@+id/imageView2"
+        android:layout_alignTop="@+id/home_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/searchText"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!-- 검색 버튼 -->
+    <Button
+        android:text="검색"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchButton"
+        android:onClick="onSearchButtonClicked"
+        android:layout_alignBaseline="@+id/searchText"
+        android:layout_alignBottom="@+id/searchText"
+        android:layout_toRightOf="@+id/searchText"
+        android:layout_toEndOf="@+id/searchText"
+        android:background="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold" />
+
+    <!-- 검색어 입력 text-->
+    <EditText
+        android:id="@+id/searchText"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_marginTop="21dp"
+        android:inputType="textCapWords"
+        android:hint="검색어를 입력하세요"
+        android:maxLines="1"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_below="@+id/home_button"
+        android:layout_toRightOf="@+id/home_button"
+        android:layout_toEndOf="@+id/home_button" />
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/searchButton" />
+</RelativeLayout>

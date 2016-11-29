@@ -1,4 +1,4 @@
-package com.se_team8.dongguk_usedbook_market;
+﻿package com.se_team8.dongguk_usedbook_market;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.se_team8.dongguk_usedbook_market.domain.Person;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,13 +34,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText etId,etPassword;
     Button btnPost;
-    private static Person person;
+    private static Person person = new Person();
     static String strJson = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
         // 입력한 값 받아온다
         etId = (EditText) findViewById(R.id.userIdInput);
@@ -260,13 +263,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     // call AsynTask to perform network operation on separate thread
                     HttpAsyncTask httpTask = new HttpAsyncTask(LoginActivity.this);
                     //httpTask에 data 넘겨줌
-                    //httpTask.execute("http://softwareengineeringtp.azurewebsites.net/loginCheck/", etId.getText().toString(), etPassword.getText().toString());
+                    httpTask.execute("http://softwareengineeringtp.azurewebsites.net/loginCheck/", etId.getText().toString(), etPassword.getText().toString());
 
                     //테스트 위한 임시 코드 4줄
                     //HttpSignUpAsyncTask test = new HttpSignUpAsyncTask(LoginActivity.this);
                     //test.execute("http://softwareengineeringtp.azurewebsites.net/signup/", "2014112057", "1","최진영");
-                    HttpTokenAsyncTask test = new HttpTokenAsyncTask(LoginActivity.this);
-                    test.execute("http://softwareengineeringtp.azurewebsites.net/api-token-auth/",  etId.getText().toString(), "1");
+                    //HttpTokenAsyncTask test = new HttpTokenAsyncTask(LoginActivity.this);
+                    //test.execute("http://softwareengineeringtp.azurewebsites.net/api-token-auth/",  etId.getText().toString(), "1");
                 }
                 break;
         }
@@ -282,8 +285,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // 스레드의 메인부분 (데이터를 처리하는 부분)
         @Override
         protected String doInBackground(String... urls) {
-
-            person = new Person();
             person.setId(urls[1]);
             person.setPassword(urls[2]);
             person.setName(urls[3]);
@@ -314,8 +315,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // 스레드의 메인부분 (데이터를 처리하는 부분)
         @Override
         protected String doInBackground(String... urls) {
-
-            person = new Person();
             person.setId(urls[1]);
             person.setPassword(urls[2]);
 
@@ -330,7 +329,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void run() {
                     try {
-                        if(strJson.compareTo("error")!=0) {
+                        if(strJson.compareTo("\"error\"")!=0) {
                             JSONObject json = new JSONObject(strJson);
                             person.setName(json.getString("username"));
                             person.setOverlap(json.getString("overlap"));
@@ -345,9 +344,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }
                         }
                         else{
-                            Toast.makeText(mainAct, "로그인 실패!", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(intent);
+                            Toast.makeText(mainAct, "로그인 실패! ID나 PW를 확인해주세요!", Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -369,8 +366,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // 스레드의 메인부분 (데이터를 처리하는 부분)
         @Override
         protected String doInBackground(String... urls) {
-
-            person = new Person();
             person.setId(urls[1]);
             person.setPassword(urls[2]);
 
@@ -401,6 +396,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    /** 입력텍스트를 모두 입력했는지 확인 */
     private boolean validate(){
         if(etId.getText().toString().trim().equals(""))
             return false;
@@ -410,6 +406,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return true;
     }
 
+    /** InputStream을 String으로 변환 (서버에서 받은 값을 String으로 변환) */
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
@@ -421,6 +418,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return result;
     }
 
+    /** 연결이 제대로 이루어졌는지 확인하고 그렇지 않다면 오류메시지 출력 */
     private static void checkConnection(HttpURLConnection httpCon){
         //연결 확인
         byte[] buf = new byte[4096];

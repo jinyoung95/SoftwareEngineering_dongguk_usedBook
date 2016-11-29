@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="1">
-
         <TableLayout
             android:id="@+id/bookDetails"
             android:layout_width="249dp"
@@ -86,6 +85,22 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
                     android:textSize="12sp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/trSellerPrice">
+                <TextView
+                    android:id="@+id/tvSellerPriceName"
+                    android:text="판매가"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/tvSellerPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textStyle="normal|bold" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

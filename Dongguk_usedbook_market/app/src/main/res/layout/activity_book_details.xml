@@ -70,12 +70,12 @@
 
     <!-- 도서 이미지 -->
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="180dp"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
         android:layout_marginTop="26dp"
         android:id="@+id/ivBdBookCover"
-        android:layout_marginLeft="21dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_below="@+id/home_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -87,14 +87,15 @@
         android:layout_alignTop="@+id/ivBdBookCover"
         android:id="@+id/tvBdBookTitle"
         android:paddingLeft="10dp"
-        android:paddingBottom="5dp"
+        android:paddingBottom="1dp"
+        android:maxLines="2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/ivBdBookCover"
         android:layout_toEndOf="@+id/ivBdBookCover"
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="16sp"/>
 
     <!-- 세부정보 -->
     <TableLayout
@@ -110,75 +111,79 @@
         <TableRow>
             <TextView
                 android:text="저자"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvBdBookAuthor"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
         </TableRow>
         <TableRow>
             <TextView
                 android:text="출판사"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvBdBookPublisher"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
         </TableRow>
         <TableRow>
             <TextView
                 android:text="출간일"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvBdBookPubdate"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
         </TableRow>
         <TableRow>
             <TextView
                 android:text="ISBN"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvBdBookISBN"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
         </TableRow>
         <TableRow>
             <TextView
                 android:text="정가"
-                android:paddingTop="10dp"
-                android:textSize="13sp"
+                android:paddingTop="5dp"
+                android:textSize="12sp"
                 android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/tvBdBookPrice"
-                android:paddingLeft="5dp"
-                android:paddingTop="10dp" />
+                android:maxLines="1"
+                android:textSize="14sp"
+                android:paddingLeft="3dp"
+                android:paddingTop="5dp" />
         </TableRow>
         <TableRow>
             <TextView
                 android:text="판매가"
-                android:paddingTop="5dp"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/tvBdSellerPrice"
-                android:paddingTop="5dp"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="normal|bold" />
             </TableRow>
         <TableRow>
             <TextView
                 android:text="판매자"
-                android:paddingTop="5dp"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/tvBdSellerName"
-                android:paddingTop="5dp"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
-                android:textSize="13sp"/>
+                android:textSize="14sp"/>
         </TableRow>
     </TableLayout>
 
@@ -188,38 +193,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="10dp"
-        android:layout_marginBottom="215dp"
         android:layout_below="@+id/ivBdBookCover"
         android:layout_alignLeft="@+id/ivBdBookCover"
-        android:layout_alignStart="@+id/ivBdBookCover">
+        android:layout_alignStart="@+id/ivBdBookCover"
+        android:layout_above="@+id/requestButton">
         <TableRow>
             <TextView
                 android:text="제품상태"
                 android:paddingTop="5dp"
                 android:paddingLeft="5dp"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/tvBdStatus"
                 android:paddingTop="5dp"
-                android:paddingLeft="5dp"
+                android:paddingLeft="7dp"
+                android:textStyle="normal|bold"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="13sp"/>
         </TableRow>
-    </TableLayout>
-
-    <!-- 과목, 교수 -->
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="195dp"
-        android:layout_below="@+id/ivBdBookCover"
-        android:layout_alignLeft="@+id/ivBdBookCover"
-        android:layout_alignStart="@+id/ivBdBookCover">
         <TableRow>
             <TextView
-                android:text="과목"
+                android:text="과      목"
                 android:paddingTop="5dp"
                 android:paddingLeft="5dp"
                 android:textSize="13sp"
@@ -227,37 +222,25 @@
             <TextView
                 android:id="@+id/tvBdCourse"
                 android:paddingTop="5dp"
-                android:paddingLeft="5dp"
-                android:textSize="13sp" />
+                android:paddingLeft="7dp"
+                android:textSize="13sp"/>
+        </TableRow>
+        <TableRow>
             <TextView
-                android:text="교수"
+                android:text="교      수"
                 android:paddingTop="5dp"
-                android:paddingLeft="30dp"
+                android:paddingLeft="5dp"
                 android:textSize="13sp"
                 android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/tvBdProfessor"
                 android:paddingTop="5dp"
-                android:paddingLeft="5dp"
+                android:paddingLeft="7dp"
                 android:textSize="13sp" />
         </TableRow>
-    </TableLayout>
-
-    <!-- 상세 -->
-    <TableLayout
-        android:id="@+id/bookMoreDetails"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ivBdBookCover"
-        android:layout_alignLeft="@+id/ivBdBookCover"
-        android:layout_alignStart="@+id/ivBdBookCover"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="10dp"
-        android:paddingRight="15dp"
-        android:layout_above="@+id/requestButton">
         <TableRow>
             <TextView
-                android:text="상세"
+                android:text="상      세"
                 android:paddingTop="5dp"
                 android:paddingLeft="5dp"
                 android:textSize="13sp"
@@ -265,7 +248,7 @@
             <TextView
                 android:id="@+id/tvBdMoreDetails"
                 android:paddingTop="5dp"
-                android:paddingLeft="5dp"
+                android:paddingLeft="7dp"
                 android:textSize="13sp"/>
         </TableRow>
     </TableLayout>
