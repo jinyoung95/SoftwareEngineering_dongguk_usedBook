@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_book_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp">
+
+    <!-- 홈 버튼 -->
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:id="@+id/home_button"
+        android:background="@drawable/home_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onHomeButtonClicked" />
+
+    <!-- 판매등록 버튼 -->
+    <Button
+        android:text="판매등록"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:id="@+id/registerButton"
+        android:layout_marginLeft="88dp"
+        android:layout_marginStart="88dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:elevation="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onRegistertBtnClicked"/>
+
+    <!-- 목록 버튼 -->
+    <Button
+        android:text="목록"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerListButton"
+        android:layout_alignBaseline="@+id/registerButton"
+        android:layout_alignBottom="@+id/registerButton"
+        android:layout_toRightOf="@+id/registerButton"
+        android:layout_toEndOf="@+id/registerButton"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:textColor="@android:color/white"
+        android:textStyle="normal|bold"
+        android:onClick="onRegListBtnClicked" />
+
+    <!-- 도서세부정보 페이지 -->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/register_page"
+        android:id="@+id/book_details_page"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/ivSrBookCover" />
+
+    <!-- 도서 이미지 -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="26dp"
+        android:id="@+id/ivSrBookCover"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_below="@+id/home_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!-- 도서 제목 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivSrBookCover"
+        android:id="@+id/tvSrBookTitle"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="3dp"
+        android:paddingTop="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/ivSrBookCover"
+        android:layout_toEndOf="@+id/ivSrBookCover"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:background="#EAEAEA" />
+
+    <!-- 세부정보 -->
+    <TableLayout
+        android:id="@+id/bookDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@+id/ivSrBookCover"
+        android:layout_toEndOf="@+id/ivSrBookCover"
+        android:layout_below="@+id/tvSrBookTitle"
+        android:layout_alignBottom="@+id/ivSrBookCover"
+        android:background="#EAEAEA">
+
+        <TableRow>
+            <TextView
+                android:text="저자"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookAuthor"
+                android:paddingLeft="5dp"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="출판사"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookPublisher"
+                android:paddingLeft="5dp"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="출간일"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookPubdate"
+                android:paddingLeft="5dp"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="ISBN"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookISBN"
+                android:paddingLeft="5dp"
+                android:textSize="12sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="정가"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookPrice"
+                android:paddingLeft="5dp"
+                android:textSize="12sp" />
+        </TableRow>
+    </TableLayout>
+
+    <!-- 판매 세부정보 -->
+    <TableLayout
+        android:id="@+id/registerDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp"
+        android:layout_below="@+id/ivSrBookCover"
+        android:layout_alignLeft="@+id/ivSrBookCover"
+        android:layout_alignStart="@+id/ivSrBookCover"
+        android:layout_alignRight="@+id/bookDetails"
+        android:layout_alignEnd="@+id/bookDetails"
+        android:layout_above="@+id/registerButton">
+
+        <TableRow>
+            <TextView
+                android:text="판매자"
+                android:textStyle="normal|bold" />
+            <TextView
+                android:id="@+id/tvSrSellerName"
+                android:paddingLeft="10dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="가격"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrPrice"
+                android:layout_width="230dp"
+                android:inputType="textCapWords"
+                android:textColor="#ccf88107"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:paddingTop="7dp"
+                android:text="상태"
+                android:textStyle="normal|bold" />
+            <RadioGroup
+                android:id="@+id/rgSrStatusButton"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rbSrGood"
+                    android:text="양호"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"/>
+                <RadioButton
+                    android:id="@+id/rbSrSoso"
+                    android:text="보통"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp" />
+                <RadioButton
+                    android:id="@+id/rbSrBad"
+                    android:text="나쁨"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvSrCourse"
+                android:text="과목"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrCourse"
+                android:layout_width="230dp"
+                android:inputType="textCapWords"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvSrProfessor"
+                android:text="교수"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrProfessor"
+                android:layout_width="230dp"
+                android:inputType="textCapWords"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvSrMoreDetails"
+                android:text="상세"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrMoreDetails"
+                android:layout_width="300dp"
+                android:singleLine="true"
+                android:inputType="textCapWords"/>
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
