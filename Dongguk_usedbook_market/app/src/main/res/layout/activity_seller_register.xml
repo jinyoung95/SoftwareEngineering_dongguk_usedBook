@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Created by 2014112041 김엄지 -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_book_details"
@@ -93,7 +94,7 @@
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
         android:textSize="13sp"
-        android:singleLine="true"
+        android:maxLines="2"
         android:background="#EAEAEA" />
 
     <!-- 세부정보 -->
@@ -116,6 +117,7 @@
                 android:textSize="12sp" />
             <TextView
                 android:id="@+id/tvSrBookAuthor"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="12sp" />
         </TableRow>
@@ -126,6 +128,7 @@
                 android:textSize="12sp" />
             <TextView
                 android:id="@+id/tvSrBookPublisher"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="12sp" />
         </TableRow>
@@ -136,6 +139,7 @@
                 android:textSize="12sp" />
             <TextView
                 android:id="@+id/tvSrBookPubdate"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="12sp" />
         </TableRow>
@@ -146,6 +150,7 @@
                 android:textSize="12sp" />
             <TextView
                 android:id="@+id/tvSrBookISBN"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="12sp" />
         </TableRow>
@@ -156,6 +161,7 @@
                 android:textSize="12sp" />
             <TextView
                 android:id="@+id/tvSrBookPrice"
+                android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="12sp" />
         </TableRow>
@@ -248,7 +254,6 @@
             <EditText
                 android:id="@+id/etSrMoreDetails"
                 android:layout_width="300dp"
-                android:singleLine="true"
                 android:inputType="textCapWords"/>
         </TableRow>
     </TableLayout>

@@ -1,8 +1,10 @@
 package com.se_team8.dongguk_usedbook_market;
 
 /**
- * Created by Eomji on 2016-11-25.
+ * Created by Eomji(2014112041김엄지) on 2016-11-25.
  */
+
+/** 로그인할 때 사용자의 정보 저장할 클래스*/
 public class Person {
     private String id;
     private String password;

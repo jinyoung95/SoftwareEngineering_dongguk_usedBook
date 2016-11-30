@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by 2014112019 김주현 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/mRecipientName"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/mLast"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:padding="7dp"
+        android:layout_height="38dp" />
+
+    <TextView
+        android:id="@+id/mLast"
+        android:layout_width="383dp"
+        android:layout_height="20dp"
+        android:paddingLeft="10dp" />
+
+</LinearLayout>

@@ -1,9 +1,10 @@
 package com.se_team8.dongguk_usedbook_market;
 
 /**
- * Created by JinYoung on 2016-11-20.
+ * Created by JinYoung(2014112057 최진영) on 2016-11-20.
  */
 
+/** Book domain */
 public class BookVO {
     // Book information
     private String title;
@@ -18,6 +19,8 @@ public class BookVO {
     private String professor;
     private String course;
     private String comment;
+    private String ID;
+    private String owner;
 
     public String getTitle() {
         return title;
@@ -113,5 +116,21 @@ public class BookVO {
 
     public void setSellerPrice(String sellerPrice) {
         this.sellerPrice = sellerPrice;
+    }
+
+    public String getID(){
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 }

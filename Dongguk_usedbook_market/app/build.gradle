@@ -35,7 +35,9 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:9.6.1'
     compile 'com.firebase:firebase-client-android:2.5.2+'
     compile 'com.googlecode.android-query:android-query:0.25.9'     // AQuery
+    compile 'com.google.firebase:firebase-messaging:9.6.1'  // firebase push message
 }
 
 // Add to the bottom of the file
+
 apply plugin: 'com.google.gms.google-services'

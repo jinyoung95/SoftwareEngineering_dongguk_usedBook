@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Created by 2014112019 김주현 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_mypage"
@@ -10,42 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.se_team8.dongguk_usedbook_market.MypageActivity"
     android:isScrollContainer="true">
-
-    <!-- 프로필 이미지 뷰 -->
-    <ImageView
-        android:id="@+id/defaultProfileImage"
-        android:background="@drawable/defaultprofile"
-        android:layout_width="80dp"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/mypageImage"
-        android:layout_centerHorizontal="true"
-        android:layout_height="80dp" />
-
-    <!-- 프로필 이름 -->
-    <TextView
-        android:id="@+id/studentName"
-        android:layout_height="30dp"
-        android:text="김주현"
-        android:layout_width="200dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/studentID"
-        android:background="#f1f1f1"
-        android:padding="6dp"
-        android:layout_alignStart="@+id/defaultProfileImage"
-        android:layout_alignEnd="@+id/mypageImage" />
-
-    <!-- 프로필 아이디 -->
-    <TextView
-        android:id="@+id/studentID"
-        android:text="2014112019"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
-        android:background="#f1f1f1"
-        android:padding="6dp"
-        android:layout_below="@+id/defaultProfileImage"
-        android:layout_alignStart="@+id/studentName"
-        android:layout_alignEnd="@+id/mypageImage" />
 
     <!-- 이름 :  -->
     <TextView
@@ -68,19 +33,7 @@
         android:layout_alignBaseline="@+id/studentID"
         android:layout_alignBottom="@+id/studentID"
         android:textStyle="normal|bold"
-        android:layout_alignStart="@+id/mypageImage" />
-
-    <ExpandableListView
-        android:layout_height="match_parent"
-        android:groupIndicator="@null"
-        android:id="@+id/elv"
-        android:headerDividersEnabled="false"
-        android:layout_width="200dp"
-        android:layout_below="@+id/studentName"
-        android:layout_alignEnd="@+id/studentName"
-        android:layout_marginTop="14dp"
-        android:layout_alignStart="@+id/NametextView">
-    </ExpandableListView>
+        android:layout_alignStart="@+id/chat_button" />
 
     <Button
         android:layout_width="32dp"
@@ -96,18 +49,49 @@
         android:background="@drawable/mypage"
         android:layout_width="200dp"
         android:layout_height="55dp"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/home_button"
         android:layout_centerHorizontal="true" />
 
+    <ExpandableListView
+        android:layout_height="match_parent"
+        android:groupIndicator="@null"
+        android:id="@+id/elv"
+        android:headerDividersEnabled="false"
+        android:layout_width="260dp"
+        android:layout_below="@+id/chat_button"
+        android:layout_alignStart="@+id/chat_button"
+        android:layout_marginTop="13dp">
+    </ExpandableListView>
+
+    <TextView
+        android:id="@+id/studentName"
+        android:layout_height="30dp"
+        android:layout_width="200dp"
+        android:layout_marginTop="12dp"
+        android:background="#f1f1f1"
+        android:padding="6dp"
+        android:layout_below="@+id/studentID"
+        android:layout_alignEnd="@+id/chat_button" />
+
+    <TextView
+        android:id="@+id/studentID"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="22dp"
+        android:background="#f1f1f1"
+        android:padding="6dp"
+        android:layout_below="@+id/mypageImage"
+        android:layout_alignStart="@+id/studentName" />
+
     <Button
-        android:layout_width="32dp"
         android:layout_height="40dp"
+        android:text="채팅목록"
         android:id="@+id/chat_button"
-        android:background="@drawable/chat_emo"
         android:onClick="onChattingButtonClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="260dp"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/studentName"
+        android:layout_toEndOf="@+id/home_button" />
 
 </RelativeLayout>
 

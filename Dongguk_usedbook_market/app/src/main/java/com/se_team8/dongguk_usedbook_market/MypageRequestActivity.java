@@ -12,12 +12,8 @@ import android.widget.Toast;
 
 import com.androidquery.AQuery;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,12 +21,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- *   Created by Eomji(2014112041 김엄지) on 2016-11-26.
+ *   Created by Eomji(2014112041김엄지) on 2016-11-28.
  */
 
-public class BookDetailsActivity extends AppCompatActivity {
+public class MypageRequestActivity extends AppCompatActivity {
     private static String userName, userID, token, bookID;
     private String owner, title, author, publisher, price, pubdate, ISBN, cover, course, professor, sellerPrice, comment, status;
+    private static String requestID;
     private TextView tvSellerName, tvTitle, tvAuthor, tvPublisher, tvPubdate, tvPrice, tvISBN, tvCourse, tvProfessor, tvSellerPrice, tvComment, tvStatus;
     private static String strJson = "";
     private static String mainURL = "http://softwareengineeringtp.azurewebsites.net/";
@@ -38,19 +35,20 @@ public class BookDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_details);
-        getSupportActionBar().hide(); // 타이틀 숨김
+        setContentView(R.layout.activity_mypage_request);
+        getSupportActionBar().hide(); // 타이틀을 안보이도록 함
 
         // 선택한 도서의 세부정보 보여주기
         AQuery aq = new AQuery(this);
         Intent intent = getIntent();
 
         if (intent != null) {
-            // BuyerSearchActivity로부터 넘어온 데이터를 꺼낸다
+            // My Page로부터 넘어온 데이터를 꺼낸다
             userName = intent.getStringExtra("username");
             userID = intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
 
+            requestID = intent.getStringExtra("requestId");
             bookID = intent.getStringExtra("bookID");
             title = intent.getStringExtra("bookTitle");
             author = intent.getStringExtra("bookAuthor");
@@ -67,26 +65,26 @@ public class BookDetailsActivity extends AppCompatActivity {
             owner = intent.getStringExtra("owner");
         }
 
-        tvTitle = (TextView) findViewById(R.id.tvBdBookTitle);
-        tvAuthor = (TextView) findViewById(R.id.tvBdBookAuthor);
-        tvPublisher = (TextView) findViewById(R.id.tvBdBookPublisher);
-        tvPrice = (TextView) findViewById(R.id.tvBdBookPrice);
-        tvPubdate = (TextView) findViewById(R.id.tvBdBookPubdate);
-        tvISBN = (TextView) findViewById(R.id.tvBdBookISBN);
-        tvCourse = (TextView) findViewById(R.id.tvBdCourse);
-        tvProfessor = (TextView) findViewById(R.id.tvBdProfessor);
-        tvSellerPrice = (TextView) findViewById(R.id.tvBdSellerPrice);
-        tvComment = (TextView) findViewById(R.id.tvBdMoreDetails);
-        tvStatus = (TextView) findViewById(R.id.tvBdStatus);
-        tvSellerName = (TextView) findViewById(R.id.tvBdSellerName);
-        // 받아온 정보 출력
+        tvTitle = (TextView) findViewById(R.id.tvMpBookTitle);
+        tvAuthor = (TextView) findViewById(R.id.tvMpBookAuthor);
+        tvPublisher = (TextView) findViewById(R.id.tvMpBookPublisher);
+        tvPrice = (TextView) findViewById(R.id.tvMpBookPrice);
+        tvPubdate = (TextView) findViewById(R.id.tvMpBookPubdate);
+        tvISBN = (TextView) findViewById(R.id.tvMpBookISBN);
+        tvCourse = (TextView) findViewById(R.id.tvMpCourse);
+        tvProfessor = (TextView) findViewById(R.id.tvMpProfessor);
+        tvSellerPrice = (TextView) findViewById(R.id.tvMpSellerPrice);
+        tvComment = (TextView) findViewById(R.id.tvMpMoreDetails);
+        tvStatus = (TextView) findViewById(R.id.tvMpStatus);
+        tvSellerName = (TextView) findViewById(R.id.tvMpSellerName);
+        // 꺼내온 데이터 출력
         tvTitle.setText(Html.fromHtml(title));
         tvAuthor.setText(Html.fromHtml(author));
         tvPrice.setText(price);
         tvPubdate.setText(pubdate);
         tvPublisher.setText(Html.fromHtml(publisher));
         tvISBN.setText(ISBN);
-        aq.id(R.id.ivBdBookCover).image(cover);
+        aq.id(R.id.ivMpBookCover).image(cover);
         tvCourse.setText(course);
         tvProfessor.setText(professor);
         tvSellerPrice.setText(sellerPrice);
@@ -96,9 +94,9 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     /**
-     *  홈 버튼 클릭 -> 홈으로 이동
-     *  @param view
-     *  */
+     * 홈 버튼 클릭 -> 홈으로 이동
+     * @param view
+     * */
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         intent.putExtra("username", userName);
@@ -108,7 +106,7 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     /**
-     * 목록 버튼 클릭 -> 구매요청목록으로 이동
+     * 목록 버튼 클릭 -> 이전화면(마이페이지)로 이동
      * @param view
      * */
     public void onListBtnClicked(View view){
@@ -116,21 +114,21 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     /**
-     * 구매요청 버튼 클릭 -> 구매 요청하는 스레드 실행
+     * 삭제 버튼 클릭 -> 구매 요청 도서 삭제 스레드 실행
      * @param view
      * */
-    public void onRequestBtnClicked(View view){
-        getSupportActionBar().hide(); // 타이틀 숨김
-        HttpAsyncTask httpTask = new HttpAsyncTask(BookDetailsActivity.this);
-        httpTask.execute(mainURL+"application/book/", bookID, userName);      //구매 요청 스레드 실행
+    public void onReqDelBtnClicked(View view){
+        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
+        HttpAsyncTask httpTask = new HttpAsyncTask(MypageRequestActivity.this);
+        httpTask.execute(mainURL+"application/del/book/"+requestID+"/");    // 삭제 스레드 실행
     }
 
     /**
-     * 구매요청 (서버에 요청)
-     * @param url - 연결할 서버의 주소
-     * @return - 이미 요청한 값이면 "error"
+     * 구매 요청 도서 삭제 (서버에 요청)
+     * @param url - 연결할 서버 주소
+     * @return - 삭제 완료되면 "" 반환
      * */
-    public static String request(String url){
+    public static String deleteRequest(String url){
         InputStream is = null;
         String result = "";
         try {
@@ -138,27 +136,14 @@ public class BookDetailsActivity extends AppCompatActivity {
             HttpURLConnection httpCon = (HttpURLConnection)urlCon.openConnection();
             String json = "";
 
-            // bookID를 JSONObject 형식으로 변환해 저장
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("bookId", bookID);
-            jsonObject.put("ownerName", userName);
-            json = jsonObject.toString();
-
             // header설정
-            httpCon.setRequestMethod("POST");
+            httpCon.setRequestMethod("DELETE"); // DELETE방식으로 보냄 (삭제)
             httpCon.setRequestProperty("Authorization","JWT "+ token); // 헤더에 token값 전달
             httpCon.setRequestProperty("Accept", "application/json");
             httpCon.setRequestProperty("Content-type", "application/json");
-            httpCon.setDoOutput(true);  // POST방식으로 데이터를 넘겨주겠다는 옵션
-            httpCon.setDoInput(true);   // 서버로부터 응답을 받겠다는 옵션
+            httpCon.setDoInput(true); // 서버로부터 응답을 받겠다는 옵션.
 
-            //checkConnection(httpCon); //디버깅용 함수
-
-            DataOutputStream out = new DataOutputStream(httpCon.getOutputStream()); // 서버에 보낼 객체 생성
-            out.write(json.getBytes("utf-8"));   // 서버에 작성
-            out.flush(); //객체 닫기
-
-            //checkConnection(httpCon);
+            //checkConnection(httpCon); //연결 확인(디버깅 위한 함수)
 
             //서버에서 읽어오는 객체 생성
             is = httpCon.getInputStream();
@@ -169,18 +154,16 @@ public class BookDetailsActivity extends AppCompatActivity {
             httpCon.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
         return result;
     }
 
-    /** 구매요청 서버요청을 위한 스레드 클래스 */
+    /** 구매요청도서 삭제 서버요청을 위한 스레드 클래스 */
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
-        private BookDetailsActivity mainAct;
+        private MypageRequestActivity mainAct;
         ProgressDialog dialog;
 
-        HttpAsyncTask(BookDetailsActivity mainActivity) {
+        HttpAsyncTask(MypageRequestActivity mainActivity) {
             this.mainAct = mainActivity;
         }
 
@@ -188,24 +171,22 @@ public class BookDetailsActivity extends AppCompatActivity {
         protected  void onPreExecute(){
             super.onPreExecute();
             dialog = new ProgressDialog(mainAct);
-            dialog.show(); // 로딩 화면 표시
+            dialog.show();      // 로딩 화면 표시
         }
 
         /**
-         * 스레드의 메인부분 (검색 요청 수행)
+         * 스레드의 메인부분 (삭제 요청 수행)
          * @param urls - 연결할 서버 주소
-         * @return - 이미 요청한 값이면 "error"
+         * @return -
          * */
         @Override
         protected String doInBackground(String... urls) {
-            bookID=urls[1];
-            userName=urls[2];
-            return request(urls[0]);
+            return deleteRequest(urls[0]);
         }
 
         /**
-         *  doInBackground(메인스레드)가 끝나면 호출됨 (요청완료메시지 출력)
-         *  @param result - 이미 요청한 값이면 "error"
+         *  doInBackground(메인스레드)가 끝나면 호출됨 (삭제완료메시지 출력)
+         *  @param result -
          *  */
         @Override
         protected void onPostExecute(String result) {
@@ -214,21 +195,9 @@ public class BookDetailsActivity extends AppCompatActivity {
             mainAct.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(strJson.contains("error")) {
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"이미 요청한 책입니다", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                    else if(strJson.contains("mybook")){
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"내가 등록한 책입니다", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                    else{
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(), "요청완료되었습니다", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
+                    dialog.dismiss();       // 로딩화면 끝
+                    Toast.makeText(getApplicationContext(), "삭제완료되었습니다", Toast.LENGTH_LONG).show();
+                    finish();  finish();
                 }
             });
         }

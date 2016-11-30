@@ -3,6 +3,7 @@
     package="com.se_team8.dongguk_usedbook_market">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,21 +15,33 @@
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>  // firebase push messaging
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".MypageActivity"></activity>
         <activity android:name=".SellerRegisterActivity"></activity>
         <activity android:name=".SellerSearchActivity"></activity>
-        <activity android:name=".BuyerSearchActivity"></activity>
-        <activity android:name=".BookDetailsActivity"></activity>
         <activity android:name=".ChatMainActivity"> </activity>
+        <activity android:name=".ChatListActivity"> </activity>
+        <activity android:name=".BookDetailsActivity"> </activity>
+        <activity android:name=".BuyerSearchActivity"></activity>
+        <activity android:name=".MypageRegisterActivity"></activity>
+        <activity android:name=".MypageRequestActivity"></activity>
+        <activity android:name=".RequestListActivity"></activity>
 
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <!-- [START firebase_service] -->
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>   // firebase push messaging
+            </intent-filter>
+        </service>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

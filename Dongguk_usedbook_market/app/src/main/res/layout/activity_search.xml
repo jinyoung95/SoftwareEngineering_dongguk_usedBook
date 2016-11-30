@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by 2014112057 최진영 -->
 <RelativeLayout
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingTop="0dp"
@@ -56,12 +57,11 @@
         android:layout_below="@+id/home_button"
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
-        android:singleLine="true"
+        android:maxLines="1"
         android:hint="검색어를 입력하세요"
         android:inputType="textCapWords"
         android:layout_marginTop="21dp"
         android:textSize="15dp"/>
-
     <ListView
         android:paddingTop="10dp"
         android:layout_height="match_parent"

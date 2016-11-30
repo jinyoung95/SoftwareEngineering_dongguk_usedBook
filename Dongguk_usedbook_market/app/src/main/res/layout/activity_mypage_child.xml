@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Created by 2014112019 김주현 -->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!-- 이름, 세부정보 -->
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:id="@+id/info1" />
-    <TextView
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_above="@id/info1"
-        android:id="@+id/info2" />
-<!--
-    <ImgageView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_above="@id/userName"
-        android:id="@+id/bookImage"/>  -->
 
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="목록이 존재하지 않습니다."
+        />
+
+    <TextView
+        android:id="@+id/info1"
+        android:layout_height="20dp"
+        android:layout_width="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/info3"
+        android:layout_height="20dp"
+        android:layout_width="100dp"
+        android:layout_below="@+id/info1"
+        android:layout_toEndOf="@+id/info2" />
+
+    <TextView
+        android:layout_height="20dp"
+        android:id="@+id/info2"
+        android:layout_width="100dp"
+        android:layout_alignBaseline="@+id/info3"
+        android:layout_alignBottom="@+id/info3"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

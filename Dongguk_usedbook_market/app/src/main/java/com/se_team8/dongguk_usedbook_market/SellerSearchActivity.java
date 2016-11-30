@@ -19,11 +19,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by JinYoung on 2016-11-22.
+ * Created by JinYoung(2014112057 최진영) on 2016-11-22.
  */
 
+/**
+ * 도서 검색을 위한 액티비티. 네이버 오픈 API를 사용해 크롤링한 결과를 보여준다.
+ * */
 public class SellerSearchActivity extends AppCompatActivity{
+    // 네이버에서 크롤링 해올 url
     private static final String BOOK_URL = "https://openapi.naver.com/v1/search/book.xml?query=%s&display=20";
+
     private AQuery mAq = new AQuery(this);
     private ArrayList<BookVO> mBookList = new ArrayList<BookVO>();
     private EditText search_text;
@@ -35,13 +40,14 @@ public class SellerSearchActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
         getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
         Intent intent = getIntent();
         if (intent != null) {
-            // LoginActivity로부터 넘어온 데이터를 꺼낸다
+            // HomeActivity로부터 넘어온 데이터를 꺼낸다
             userName = intent.getStringExtra("username");
-            userID = intent.getStringExtra("uerID");
+            userID = intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
         }
 
@@ -62,6 +68,7 @@ public class SellerSearchActivity extends AppCompatActivity{
                 BookVO curItem = (BookVO) adapter.getItem(position); // 선택한 item의 position 받기
                 Intent intent = new Intent(SellerSearchActivity.this, SellerRegisterActivity.class); // intent 생성
 
+                intent.putExtra("option", "POST");
                 intent.putExtra("username", userName);
                 intent.putExtra("userID", userID);
                 intent.putExtra("token", token);
@@ -78,63 +85,78 @@ public class SellerSearchActivity extends AppCompatActivity{
         });
     }
 
-    // 검색 버튼 클릭
-    public void onSearchButtonClicked(View view){
+    /**
+     *  검색 버튼 클릭하면 네이버 오픈 API를 이용해 책 정보를 크롤링하여 리스트에 보여준다.
+     */
+    public void onSearchButtonClicked(View view) {
         String query = search_text.getText().toString();
-
-        getSupportActionBar().hide(); // 타이틀이 안보이도록 함
 
         mBookList.clear();  // 리스트 초기화
 
-        // 네이버 오픈 API 이용해서 책 정보를 크롤링
-        mAq.ajax(String.format(BOOK_URL, query), XmlDom.class, new AjaxCallback<XmlDom>() {
-            @Override
-            public void callback(String url, XmlDom object, AjaxStatus status) {
-                Log.d("LDK", "url: " + url);
-                Log.d("LDK", "status code: " + status.getCode());
+        if(!validate()) {
+            Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();
+        } else {
+            // 네이버 오픈 API 이용해서 책 정보를 크롤링(XML DOM 파서 이용)
+            mAq.ajax(String.format(BOOK_URL, query), XmlDom.class, new AjaxCallback<XmlDom>() {
+                @Override
+                public void callback(String url, XmlDom object, AjaxStatus status) {
+                    Log.d("LDK", "url: " + url);
+                    Log.d("LDK", "status code: " + status.getCode());
 
-                // getElementsByTagName(tag) 와 동일, 노드리스트를 리턴받는다.
-                List<XmlDom> itemList =object.tags("item");
-                for(XmlDom item : itemList) {
-                    //title 노드를 리턴
-                    XmlDom titleNode = item.tag("title");
-                    String strTitle = titleNode.text(); // 텍스트노드의 텍스트를 가져옴.
-                    String strAuthor = item.tag("author").text();
-                    String strImg = item.tag("image").text();
-                    String strPublisher = item.tag("publisher").text();
-                    String strPubdate = item.tag("pubdate").text();
-                    String strISBN = item.tag("isbn").text();
-                    String strPrice = item.tag("price").text();
+                    // getElementsByTagName(tag) 와 동일, 노드리스트를 리턴받는다.
+                    List<XmlDom> itemList = object.tags("item");
+                    for (XmlDom item : itemList) {
+                        XmlDom titleNode = item.tag("title");
+                        String strTitle = titleNode.text(); // 텍스트노드의 텍스트를 가져옴.
+                        String strAuthor = item.tag("author").text();
+                        String strImg = item.tag("image").text();
+                        String strPublisher = item.tag("publisher").text();
+                        String strPubdate = item.tag("pubdate").text();
+                        String strISBN = item.tag("isbn").text();
+                        String strPrice = item.tag("price").text();
+                        String strSellerPrice = null;
 
-                    BookVO book = new BookVO();
-                    book.setTitle(strTitle);
-                    book.setAuthor(strAuthor);
-                    book.setImgUrl(strImg);
-                    book.setPublisher(strPublisher);
-                    book.setPubdate(strPubdate);
-                    book.setIsbn(strISBN);
-                    book.setPrice(strPrice);
-                    mBookList.add(book);
+                        BookVO book = new BookVO();
+                        book.setTitle(strTitle);
+                        book.setAuthor(strAuthor);
+                        book.setImgUrl(strImg);
+                        book.setPublisher(strPublisher);
+                        book.setPubdate(strPubdate);
+                        book.setIsbn(strISBN);
+                        book.setPrice(strPrice);
+                        book.setSellerPrice(strSellerPrice);
+                        mBookList.add(book);
+                    }
+                    adapter.notifyDataSetChanged(); //  변경된 모델 데이터를 리스트 뷰에게 알려줘서 뷰를 갱신
+
                 }
-                adapter.notifyDataSetChanged(); //  변경된 모델 데이터를 리스트 뷰에게 알려줘서 뷰를 갱신
+            }.header("X-Naver-Client-Id", "XZl1i29Qk4zL8M5ZUn6D")
+                    .header("X-Naver-Client-Secret", "NhKbWMdOPT"));
 
-            }
-        }.header("X-Naver-Client-Id", "XZl1i29Qk4zL8M5ZUn6D")
-                .header("X-Naver-Client-Secret", "NhKbWMdOPT"));
-
-        Toast.makeText(getApplicationContext(), "검색이 완료되었습니다", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "검색이 완료되었습니다", Toast.LENGTH_LONG).show();
+        }
     }
 
-    // 홈 버튼 클릭 -> 홈으로 이동
+    /**
+     * 사용자 입력란에 공란이 있는지 확인
+     * @return boolean : 모두 입력했으면 true, 입력하지 않았으면 false를 반환
+     * */
+    private boolean validate(){
+        if(search_text.getText().toString().trim().equals(""))
+            return false;
+        else
+            return true;
+    }
+
+    /**
+     * 홈 버튼 클릭 -> 홈으로 이동
+     * @param view
+     */
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        userName = intent.getStringExtra("username");
-        userID = intent.getStringExtra("uerID");
-        token = intent.getStringExtra("token");
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 }
-
-
-
-

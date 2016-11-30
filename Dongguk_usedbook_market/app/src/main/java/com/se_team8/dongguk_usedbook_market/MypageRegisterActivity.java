@@ -12,12 +12,7 @@ import android.widget.Toast;
 
 import com.androidquery.AQuery;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -25,10 +20,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- *   Created by Eomji(2014112041 김엄지) on 2016-11-26.
+ *   Created by Eomji(2014112041김엄지) on 2016-11-28.
  */
 
-public class BookDetailsActivity extends AppCompatActivity {
+public class MypageRegisterActivity extends AppCompatActivity {
     private static String userName, userID, token, bookID;
     private String owner, title, author, publisher, price, pubdate, ISBN, cover, course, professor, sellerPrice, comment, status;
     private TextView tvSellerName, tvTitle, tvAuthor, tvPublisher, tvPubdate, tvPrice, tvISBN, tvCourse, tvProfessor, tvSellerPrice, tvComment, tvStatus;
@@ -38,7 +33,7 @@ public class BookDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_details);
+        setContentView(R.layout.activity_mypage_register);
         getSupportActionBar().hide(); // 타이틀 숨김
 
         // 선택한 도서의 세부정보 보여주기
@@ -46,7 +41,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent != null) {
-            // BuyerSearchActivity로부터 넘어온 데이터를 꺼낸다
+            // My Page로부터 넘어온 데이터를 꺼낸다
             userName = intent.getStringExtra("username");
             userID = intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
@@ -67,26 +62,26 @@ public class BookDetailsActivity extends AppCompatActivity {
             owner = intent.getStringExtra("owner");
         }
 
-        tvTitle = (TextView) findViewById(R.id.tvBdBookTitle);
-        tvAuthor = (TextView) findViewById(R.id.tvBdBookAuthor);
-        tvPublisher = (TextView) findViewById(R.id.tvBdBookPublisher);
-        tvPrice = (TextView) findViewById(R.id.tvBdBookPrice);
-        tvPubdate = (TextView) findViewById(R.id.tvBdBookPubdate);
-        tvISBN = (TextView) findViewById(R.id.tvBdBookISBN);
-        tvCourse = (TextView) findViewById(R.id.tvBdCourse);
-        tvProfessor = (TextView) findViewById(R.id.tvBdProfessor);
-        tvSellerPrice = (TextView) findViewById(R.id.tvBdSellerPrice);
-        tvComment = (TextView) findViewById(R.id.tvBdMoreDetails);
-        tvStatus = (TextView) findViewById(R.id.tvBdStatus);
-        tvSellerName = (TextView) findViewById(R.id.tvBdSellerName);
-        // 받아온 정보 출력
+        tvTitle = (TextView) findViewById(R.id.tvMprBookTitle);
+        tvAuthor = (TextView) findViewById(R.id.tvMprBookAuthor);
+        tvPublisher = (TextView) findViewById(R.id.tvMprBookPublisher);
+        tvPrice = (TextView) findViewById(R.id.tvMprBookPrice);
+        tvPubdate = (TextView) findViewById(R.id.tvMprBookPubdate);
+        tvISBN = (TextView) findViewById(R.id.tvMprBookISBN);
+        tvCourse = (TextView) findViewById(R.id.tvMprCourse);
+        tvProfessor = (TextView) findViewById(R.id.tvMprProfessor);
+        tvSellerPrice = (TextView) findViewById(R.id.tvMprSellerPrice);
+        tvComment = (TextView) findViewById(R.id.tvMprMoreDetails);
+        tvStatus = (TextView) findViewById(R.id.tvMprStatus);
+        tvSellerName = (TextView) findViewById(R.id.tvMprSellerName);
+        // 꺼내온 데이터 출력
         tvTitle.setText(Html.fromHtml(title));
         tvAuthor.setText(Html.fromHtml(author));
         tvPrice.setText(price);
         tvPubdate.setText(pubdate);
         tvPublisher.setText(Html.fromHtml(publisher));
         tvISBN.setText(ISBN);
-        aq.id(R.id.ivBdBookCover).image(cover);
+        aq.id(R.id.ivMprBookCover).image(cover);
         tvCourse.setText(course);
         tvProfessor.setText(professor);
         tvSellerPrice.setText(sellerPrice);
@@ -96,9 +91,9 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     /**
-     *  홈 버튼 클릭 -> 홈으로 이동
-     *  @param view
-     *  */
+     * 홈 버튼 클릭 -> 홈으로 이동
+     * @param view
+     * */
     public void onHomeButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         intent.putExtra("username", userName);
@@ -108,7 +103,7 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     /**
-     * 목록 버튼 클릭 -> 구매요청목록으로 이동
+     * 목록 버튼 클릭 -> 이전화면(마이페이지)로 이동
      * @param view
      * */
     public void onListBtnClicked(View view){
@@ -116,21 +111,56 @@ public class BookDetailsActivity extends AppCompatActivity {
     }
 
     /**
-     * 구매요청 버튼 클릭 -> 구매 요청하는 스레드 실행
+     * 요청목록 클릭 -> 이 책을 구매요청한 사람들의 목록 보여주는 페이지(RequestListActivity)로 이동
      * @param view
      * */
-    public void onRequestBtnClicked(View view){
-        getSupportActionBar().hide(); // 타이틀 숨김
-        HttpAsyncTask httpTask = new HttpAsyncTask(BookDetailsActivity.this);
-        httpTask.execute(mainURL+"application/book/", bookID, userName);      //구매 요청 스레드 실행
+    public void RequestListBtnClicked(View view){
+        Intent intent = new Intent(getApplicationContext(),RequestListActivity.class );
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        intent.putExtra("bookID",bookID);
+        startActivity(intent);
     }
 
     /**
-     * 구매요청 (서버에 요청)
-     * @param url - 연결할 서버의 주소
-     * @return - 이미 요청한 값이면 "error"
+     * 삭제 버튼 클릭 -> 판매 등록 도서 삭제 스레드 실행
+     * @param view
      * */
-    public static String request(String url){
+    public void onRegisterDelBtnClicked(View view){
+        getSupportActionBar().hide(); // 타이틀 숨김
+        HttpAsyncTask httpTask = new HttpAsyncTask(MypageRegisterActivity.this);
+        httpTask.execute(mainURL+"register/book/"+bookID+"/");  //판매 등록 도서 삭제 스레드 실행
+    }
+
+    /**
+     * 수정 버튼 클릭 -> 판매 등록 도서 수정하는 페이지(SellerRegisterActivity)로 넘어감
+     * @param view
+     * */
+    public void onRegisterMdfBtnClicked(View view){
+        Intent intent = new Intent(MypageRegisterActivity.this, SellerRegisterActivity.class); // intent 생성
+        // 필요한 정보 전달
+        intent.putExtra("option", "PUT");
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        intent.putExtra("bookID",bookID);
+        intent.putExtra("bookTitle", title);
+        intent.putExtra("bookAuthor", author);
+        intent.putExtra("bookCover", cover);
+        intent.putExtra("bookISBN", ISBN);
+        intent.putExtra("bookPrice", price);
+        intent.putExtra("bookPubdate", pubdate);
+        intent.putExtra("bookPublisher", publisher);
+        startActivity(intent); // 액티비티 실행
+    }
+
+    /**
+     * 판매 등록 도서 삭제 (서버에 요청)
+     * @param url - 연결할 서버의 주소
+     * @return - 삭제 완료되면 ""반환
+     * */
+    public static String deleteRegister(String url){
         InputStream is = null;
         String result = "";
         try {
@@ -138,49 +168,31 @@ public class BookDetailsActivity extends AppCompatActivity {
             HttpURLConnection httpCon = (HttpURLConnection)urlCon.openConnection();
             String json = "";
 
-            // bookID를 JSONObject 형식으로 변환해 저장
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("bookId", bookID);
-            jsonObject.put("ownerName", userName);
-            json = jsonObject.toString();
-
             // header설정
-            httpCon.setRequestMethod("POST");
+            httpCon.setRequestMethod("DELETE"); // DELETE 형식으로 보냄(삭제)
             httpCon.setRequestProperty("Authorization","JWT "+ token); // 헤더에 token값 전달
             httpCon.setRequestProperty("Accept", "application/json");
             httpCon.setRequestProperty("Content-type", "application/json");
-            httpCon.setDoOutput(true);  // POST방식으로 데이터를 넘겨주겠다는 옵션
-            httpCon.setDoInput(true);   // 서버로부터 응답을 받겠다는 옵션
+            httpCon.setDoInput(true);           // InputStream으로 서버로 부터 응답을 받겠다는 옵션.
 
-            //checkConnection(httpCon); //디버깅용 함수
-
-            DataOutputStream out = new DataOutputStream(httpCon.getOutputStream()); // 서버에 보낼 객체 생성
-            out.write(json.getBytes("utf-8"));   // 서버에 작성
-            out.flush(); //객체 닫기
-
-            //checkConnection(httpCon);
-
-            //서버에서 읽어오는 객체 생성
-            is = httpCon.getInputStream();
+            is = httpCon.getInputStream();      // 서버에서 읽어오는 객체 생성
             if(is != null)
-                result = convertInputStreamToString(is);    // 서버의 응답을 String형식으로 result에 저장
+                result = convertInputStreamToString(is);    // 서버의 응답을 String형식으로 바꾸어 result에 저장
             else
                 result = "Did not work!";
             httpCon.disconnect();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
         return result;
     }
 
-    /** 구매요청 서버요청을 위한 스레드 클래스 */
+    /** 판매등록도서 삭제 서버요청을 위한 스레드 클래스 */
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
-        private BookDetailsActivity mainAct;
+        private MypageRegisterActivity mainAct;
         ProgressDialog dialog;
 
-        HttpAsyncTask(BookDetailsActivity mainActivity) {
+        HttpAsyncTask(MypageRegisterActivity mainActivity) {
             this.mainAct = mainActivity;
         }
 
@@ -188,24 +200,22 @@ public class BookDetailsActivity extends AppCompatActivity {
         protected  void onPreExecute(){
             super.onPreExecute();
             dialog = new ProgressDialog(mainAct);
-            dialog.show(); // 로딩 화면 표시
+            dialog.show();       // 로딩 화면 표시
         }
 
         /**
-         * 스레드의 메인부분 (검색 요청 수행)
+         * 스레드의 메인부분 (삭제 요청 수행)
          * @param urls - 연결할 서버 주소
-         * @return - 이미 요청한 값이면 "error"
+         * @return
          * */
         @Override
         protected String doInBackground(String... urls) {
-            bookID=urls[1];
-            userName=urls[2];
-            return request(urls[0]);
+            return deleteRegister(urls[0]);
         }
 
         /**
-         *  doInBackground(메인스레드)가 끝나면 호출됨 (요청완료메시지 출력)
-         *  @param result - 이미 요청한 값이면 "error"
+         *  doInBackground(메인스레드)가 끝나면 호출됨 (삭제완료메시지 출력)
+         *  @param result
          *  */
         @Override
         protected void onPostExecute(String result) {
@@ -214,21 +224,9 @@ public class BookDetailsActivity extends AppCompatActivity {
             mainAct.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if(strJson.contains("error")) {
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"이미 요청한 책입니다", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                    else if(strJson.contains("mybook")){
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"내가 등록한 책입니다", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                    else{
-                        dialog.dismiss();
-                        Toast.makeText(getApplicationContext(), "요청완료되었습니다", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
+                    dialog.dismiss();       // 로딩화면 끝
+                    Toast.makeText(getApplicationContext(), "삭제완료되었습니다", Toast.LENGTH_LONG).show();
+                    finish();  finish();
                 }
             });
         }
@@ -238,8 +236,7 @@ public class BookDetailsActivity extends AppCompatActivity {
      * InputStream을 String으로 변환 (서버에서 받은 값을 String으로 변환)
      * @param inputStream - 서버에서 받은 값을 저장한 InputStream 객체
      * @return - 서버에서 받은 값을 String으로 변환한 결과
-     * */
-    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
+     * */    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
         String result = "";
@@ -248,33 +245,5 @@ public class BookDetailsActivity extends AppCompatActivity {
 
         inputStream.close();
         return result;
-    }
-
-    /**
-     * 연결이 제대로 이루어졌는지 확인하고 그렇지 않다면 오류메시지 출력
-     * @param httpCon - 연결한 서버의 HttpURLConnection 객체체
-     * */
-    private static void checkConnection(HttpURLConnection httpCon){
-        //연결 확인
-        byte[] buf = new byte[4096];
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        int code = 0;
-        try {
-            code = httpCon.getResponseCode();
-            if(code>=400){  // 서버 내부 오류인 경우
-                bos.reset();
-                InputStream err = httpCon.getErrorStream();
-                while(true){
-                    int readlen = err.read(buf);
-                    if(readlen<1)
-                        break;
-                    bos.write(buf,0,readlen);
-                }
-                String output = new String(bos.toByteArray(), "utf-8");
-                System.err.println(output); //에러메시지 출력
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
