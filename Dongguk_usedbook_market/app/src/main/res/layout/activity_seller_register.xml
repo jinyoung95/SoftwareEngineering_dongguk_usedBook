@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Created by 2014112041 김엄지 -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_book_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,10 +45,14 @@
         android:textColor="@android:color/white"
         android:textStyle="normal|bold"
         android:elevation="0dp"
+<<<<<<< HEAD
         android:onClick="onRequestDelBtnClicked"
+=======
+>>>>>>> Eomji
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onRegistertBtnClicked"/>
 
     <!-- 목록 버튼 -->
     <Button
@@ -66,6 +69,7 @@
         android:backgroundTint="@android:color/holo_green_light"
         android:textColor="@android:color/white"
         android:textStyle="normal|bold"
+<<<<<<< HEAD
         android:onClick="onListBtnClicked" />
 
     <!-- 도서 이미지 -->
@@ -76,6 +80,28 @@
         android:id="@+id/ivMpBookCover"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
+=======
+        android:onClick="onRegListBtnClicked" />
+
+    <!-- 도서세부정보 페이지 -->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/register_page"
+        android:id="@+id/book_details_page"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/ivSrBookCover" />
+
+    <!-- 도서 이미지 -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="26dp"
+        android:id="@+id/ivSrBookCover"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+>>>>>>> Eomji
         android:layout_below="@+id/home_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -84,6 +110,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_alignTop="@+id/ivMpBookCover"
         android:id="@+id/tvMpBookTitle"
         android:paddingLeft="10dp"
@@ -96,6 +123,23 @@
         android:textStyle="normal|bold"
         android:textColor="@android:color/black"
         android:textSize="16sp"/>
+=======
+        android:layout_alignTop="@+id/ivSrBookCover"
+        android:id="@+id/tvSrBookTitle"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="3dp"
+        android:paddingTop="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/ivSrBookCover"
+        android:layout_toEndOf="@+id/ivSrBookCover"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        android:maxLines="2"
+        android:background="#EAEAEA" />
+>>>>>>> Eomji
 
     <!-- 세부정보 -->
     <TableLayout
@@ -103,17 +147,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="10dp"
+<<<<<<< HEAD
         android:layout_toRightOf="@+id/ivMpBookCover"
         android:layout_toEndOf="@+id/ivMpBookCover"
         android:layout_below="@+id/tvMpBookTitle"
         android:layout_alignBottom="@+id/ivMpBookCover">
+=======
+        android:layout_toRightOf="@+id/ivSrBookCover"
+        android:layout_toEndOf="@+id/ivSrBookCover"
+        android:layout_below="@+id/tvSrBookTitle"
+        android:layout_alignBottom="@+id/ivSrBookCover"
+        android:background="#EAEAEA">
+>>>>>>> Eomji
 
         <TableRow>
             <TextView
                 android:text="저자"
+<<<<<<< HEAD
                 android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvMpBookAuthor"
+=======
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookAuthor"
+>>>>>>> Eomji
                 android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="11sp" />
@@ -121,9 +180,16 @@
         <TableRow>
             <TextView
                 android:text="출판사"
+<<<<<<< HEAD
                 android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvMpBookPublisher"
+=======
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookPublisher"
+>>>>>>> Eomji
                 android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="11sp" />
@@ -131,9 +197,16 @@
         <TableRow>
             <TextView
                 android:text="출간일"
+<<<<<<< HEAD
                 android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvMpBookPubdate"
+=======
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookPubdate"
+>>>>>>> Eomji
                 android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="11sp" />
@@ -141,9 +214,16 @@
         <TableRow>
             <TextView
                 android:text="ISBN"
+<<<<<<< HEAD
                 android:textSize="11sp" />
             <TextView
                 android:id="@+id/tvMpBookISBN"
+=======
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookISBN"
+>>>>>>> Eomji
                 android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="11sp" />
@@ -151,6 +231,7 @@
         <TableRow>
             <TextView
                 android:text="정가"
+<<<<<<< HEAD
                 android:paddingTop="5dp"
                 android:textSize="12sp"
                 android:textStyle="normal|bold" />
@@ -168,6 +249,12 @@
                 android:textStyle="normal|bold" />
             <TextView
                 android:id="@+id/tvMpSellerPrice"
+=======
+                android:textStyle="bold"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvSrBookPrice"
+>>>>>>> Eomji
                 android:maxLines="1"
                 android:paddingLeft="5dp"
                 android:textSize="14sp"
@@ -193,6 +280,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="10dp"
+<<<<<<< HEAD
         android:layout_below="@+id/ivMpBookCover"
         android:layout_alignLeft="@+id/ivMpBookCover"
         android:layout_alignStart="@+id/ivMpBookCover"
@@ -250,6 +338,90 @@
                 android:paddingTop="5dp"
                 android:paddingLeft="7dp"
                 android:textSize="13sp"/>
+=======
+        android:paddingLeft="5dp"
+        android:layout_below="@+id/ivSrBookCover"
+        android:layout_alignLeft="@+id/ivSrBookCover"
+        android:layout_alignStart="@+id/ivSrBookCover"
+        android:layout_alignRight="@+id/bookDetails"
+        android:layout_alignEnd="@+id/bookDetails"
+        android:layout_above="@+id/registerButton">
+
+        <TableRow>
+            <TextView
+                android:text="판매자"
+                android:textStyle="normal|bold" />
+            <TextView
+                android:id="@+id/tvSrSellerName"
+                android:paddingLeft="10dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="가격"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrPrice"
+                android:layout_width="230dp"
+                android:inputType="textCapWords"
+                android:textColor="#ccf88107"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:paddingTop="7dp"
+                android:text="상태"
+                android:textStyle="normal|bold" />
+            <RadioGroup
+                android:id="@+id/rgSrStatusButton"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rbSrGood"
+                    android:text="양호"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"/>
+                <RadioButton
+                    android:id="@+id/rbSrSoso"
+                    android:text="보통"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp" />
+                <RadioButton
+                    android:id="@+id/rbSrBad"
+                    android:text="나쁨"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvSrCourse"
+                android:text="과목"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrCourse"
+                android:layout_width="230dp"
+                android:inputType="textCapWords"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvSrProfessor"
+                android:text="교수"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrProfessor"
+                android:layout_width="230dp"
+                android:inputType="textCapWords"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/tvSrMoreDetails"
+                android:text="상세"
+                android:textStyle="normal|bold" />
+            <EditText
+                android:id="@+id/etSrMoreDetails"
+                android:layout_width="300dp"
+                android:inputType="textCapWords"/>
+>>>>>>> Eomji
         </TableRow>
     </TableLayout>
 </RelativeLayout>

@@ -15,6 +15,7 @@
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>  // firebase push messaging
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity"></activity>
@@ -25,6 +26,9 @@
         <activity android:name=".ChatListActivity"> </activity>
         <activity android:name=".BookDetailsActivity"> </activity>
         <activity android:name=".BuyerSearchActivity"></activity>
+        <activity android:name=".MypageRegisterActivity"></activity>
+        <activity android:name=".MypageRequestActivity"></activity>
+        <activity android:name=".RequestListActivity"></activity>
 
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
@@ -36,6 +40,7 @@
         <service
             android:name=".MyFirebaseMessagingService">
             <intent-filter>
+<<<<<<< HEAD
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
@@ -49,5 +54,10 @@
             </intent-filter>
         </service>
         <!-- [END firebase_iid_service] -->
+=======
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>   // firebase push messaging
+            </intent-filter>
+        </service>
+>>>>>>> Eomji
     </application>
 </manifest>

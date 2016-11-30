@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by 2014112057 최진영 -->
 <RelativeLayout
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingTop="0dp"
+<<<<<<< HEAD:Dongguk_usedbook_market/app/src/main/res/layout/activity_buyer_search.xml
+    android:paddingBottom="16dp"
+    tools:context="com.se_team8.dongguk_usedbook_market.BuyerSearchActivity">
+=======
     android:paddingRight="0dp"
     android:paddingLeft="0dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:id="@+id/activity_buyer_search"
     xmlns:android="http://schemas.android.com/apk/res/android">
+>>>>>>> Eomji:Dongguk_usedbook_market/app/src/main/res/layout/activity_search.xml
 
     <!-- 홈 버튼 -->
     <Button
@@ -49,6 +55,18 @@
     <!-- 검색어 입력 text-->
     <EditText
         android:layout_height="wrap_content"
+<<<<<<< HEAD:Dongguk_usedbook_market/app/src/main/res/layout/activity_buyer_search.xml
+        android:textSize="15dp"
+        android:layout_marginTop="21dp"
+        android:inputType="textCapWords"
+        android:hint="검색어를 입력하세요"
+        android:maxLines="1"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_below="@+id/home_button"
+        android:layout_toRightOf="@+id/home_button"
+        android:layout_toEndOf="@+id/home_button" />
+=======
         android:layout_width="230dp"
         android:id="@+id/searchText"
         android:layout_toEndOf="@+id/home_button"
@@ -61,6 +79,7 @@
         android:inputType="textCapWords"
         android:layout_marginTop="21dp"
         android:textSize="15dp"/>
+>>>>>>> Eomji:Dongguk_usedbook_market/app/src/main/res/layout/activity_search.xml
     <ListView
         android:paddingTop="10dp"
         android:layout_height="match_parent"
@@ -71,6 +90,11 @@
         android:id="@+id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD:Dongguk_usedbook_market/app/src/main/res/layout/activity_buyer_search.xml
+        android:paddingTop="10dp"
+        android:layout_below="@+id/searchButton" />
+</RelativeLayout>
+=======
         android:gravity="center_horizontal|center_vertical"
         android:layout_below="@+id/searchButton"
         android:text="검색 결과가 없습니다."
@@ -82,3 +106,4 @@
         android:visibility="gone"
         android:text="더보기" />
 </RelativeLayout>
+>>>>>>> Eomji:Dongguk_usedbook_market/app/src/main/res/layout/activity_search.xml
