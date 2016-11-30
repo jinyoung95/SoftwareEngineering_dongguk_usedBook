@@ -1,7 +1,7 @@
-#Tue Nov 29 10:47:15 KST 2016
-base.0=C\:\\Users\\JinYoung\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_81d97d12902c5bd9ccf8d02074990a22443154f1
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=C\:\\Users\\JinYoung\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_8448441fe1cc161ca751e283090ac0f522f094ee\\classes.dex
-base.1=C\:\\Users\\JinYoung\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_8448441fe1cc161ca751e283090ac0f522f094ee
-file.0=C\:\\Users\\JinYoung\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_81d97d12902c5bd9ccf8d02074990a22443154f1\\classes.dex
+#Wed Nov 30 19:52:27 KST 2016
+base.0=C\:\\Users\\juhye\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_bbee01480abe99d35b0f6ed1833e489addb119bf
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\juhye\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_539a92b23c6cef0a30571eae3d68299ce9cf17b6\\classes.dex
+base.1=C\:\\Users\\juhye\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_539a92b23c6cef0a30571eae3d68299ce9cf17b6
+file.0=C\:\\Users\\juhye\\Desktop\\Dongguk_usedbook_market\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_bbee01480abe99d35b0f6ed1833e489addb119bf\\classes.dex

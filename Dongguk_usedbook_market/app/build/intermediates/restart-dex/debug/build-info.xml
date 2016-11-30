@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
-    api-level="24"
-    density="xxhdpi"
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="23"
+    density="xxxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="144365427001523"
-    token="-2809594321884725708"
+    timestamp="156696579509549"
+    token="3898493335443663856"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="8531" />
+        duration="2534" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="7489" />
+        duration="1954" />
     <task
         name="verifier"
-        duration="1895" />
+        duration="891" />
 
     <artifact
-        location="C:\Users\JinYoung\Desktop\Dongguk_usedbook_market\app\build\outputs\apk\app-debug.apk"
+        location="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="144365427001523"
+        timestamp="156696579509549"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\JinYoung\Desktop\Dongguk_usedbook_market\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
 

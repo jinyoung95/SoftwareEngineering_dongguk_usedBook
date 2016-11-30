@@ -1,9 +1,6 @@
 package com.se_team8.dongguk_usedbook_market;
 
-<<<<<<< HEAD
-=======
 import android.app.ProgressDialog;
->>>>>>> Eomji
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,12 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-<<<<<<< HEAD
-import com.se_team8.dongguk_usedbook_market.domain.Person;
-=======
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
->>>>>>> Eomji
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,34 +27,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
-<<<<<<< HEAD
- * Created by Eomji on 2016-11-10.
- */
-
-//curl -X POST -d "username=(사용자로부터 입력받은 학번)&password=1&name=(서버로부터 받은 이름)" http://softwareengineeringtp.azurewebsites.net/signup/
-// username=학번&password=1  http://softwareengineeringtp.azurewebsites.net/api-token-auth/
-=======
  * Created by Eomji(2014112041 김엄지) on 2016-11-10.
  * Created by Jinyoung(2014112057 최진영) on 2016-11-29.
  */
 
 /** 로그인 화면 Activity */
->>>>>>> Eomji
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText etId,etPassword;
     Button btnPost;
     private static Person person = new Person();
     static String strJson = "";
-<<<<<<< HEAD
-=======
     ProgressDialog dialog;
 
     private static final String TAG = "LoginActivity";
     private static String mainURL = "http://softwareengineeringtp.azurewebsites.net/";
     private static String phoneToken; // 휴대폰 기기에 대한 토큰
     private static String userToken; // 사용자의 토큰
->>>>>>> Eomji
 
     /**
      * 사용자가 입력한 값 받아오고 로그인 버튼 클릭 listener 실행
@@ -113,16 +95,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-<<<<<<< HEAD
-    /** 로그인 */
-=======
     /**
      * 로그인 수행
      * @param url - 요청할 서버의 주소
      * @return - 사용자 이름, 회원가입여부(overlap) 정보 반환
      * @author - 최진영
      * */
->>>>>>> Eomji
     public static String login(String url){
         InputStream is = null;
         String result = "";
@@ -148,158 +126,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             //checkConnection(httpCon); // 디버깅용
 
-<<<<<<< HEAD
-            //연결 확인
-            //checkConnection(httpCon);
-
-            // Request Body에 Data를 담기위해 OutputStream 객체를 생성.
-            // 서버에 보낼 객체 생성
-            DataOutputStream out = new DataOutputStream(httpCon.getOutputStream());
-            out.write(json.getBytes("utf-8"));   // 서버에 작성
-            out.flush(); //객체 닫기
-
-            //checkConnection(httpCon);
-
-            // receive response as inputStream
-            try {
-                //서버에서 읽어오는 객체 생성
-                is = httpCon.getInputStream();
-                if(is != null)
-                    // convert inputstream to string
-                    result = convertInputStreamToString(is);
-                else
-                    result = "Did not work!";
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            finally {
-                httpCon.disconnect();
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        catch (Exception e) {
-            Log.d("InputStream", e.getLocalizedMessage());
-        }
-        return result;
-    }
-
-    /** 회원가입 */
-    public static String signUp(String url){
-        InputStream is = null;
-        String result = "";
-        try {
-            URL urlCon = new URL(url);
-            HttpURLConnection httpCon = (HttpURLConnection)urlCon.openConnection();
-
-            String json = "";
-
-            // build jsonObject
-            JSONObject signUpJsonObj = new JSONObject();
-            signUpJsonObj.put("username",person.getId().toString());
-            signUpJsonObj.put("password", "1");
-            signUpJsonObj.put("name", person.getName().toString());
-
-            // convert JSONObject to JSON to String
-            json = signUpJsonObj.toString();
-
-            // Set some headers to inform server about the type of the content
-            // 타입설정(application/json) 형식으로 전송 (Request Body 전달시 application/json로 서버에 전달.)
-            httpCon.setRequestMethod("POST");
-            httpCon.setRequestProperty("Accept", "application/json");
-            httpCon.setRequestProperty("Content-type", "application/json");
-
-            // OutputStream으로 POST 데이터를 넘겨주겠다는 옵션.
-            httpCon.setDoOutput(true);
-            // InputStream으로 서버로 부터 응답을 받겠다는 옵션.
-            httpCon.setDoInput(true);
-
-            //checkConnection(httpCon);
-
-            // Request Body에 Data를 담기위해 OutputStream 객체를 생성.
-            // 서버에 보낼 객체 생성
-            DataOutputStream out = new DataOutputStream(httpCon.getOutputStream());
-            out.write(json.getBytes("utf-8"));   // 서버에 작성
-            out.flush(); //객체 닫기
-
-            //checkConnection(httpCon);
-
-            // receive response as inputStream
-            try {
-                //서버에서 읽어오는 객체 생성
-                is = httpCon.getInputStream();
-                if(is != null)
-                    // convert inputstream to string
-                    result = convertInputStreamToString(is);
-                else
-                    result = "Did not work!";
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            finally {
-                httpCon.disconnect();
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        catch (Exception e) {
-            Log.d("InputStream", e.getLocalizedMessage());
-        }
-        return result;
-    }
-
-    /** 토큰받기 */
-    public static String getTocken(String url){
-        InputStream is = null;
-        String result = "";
-        try {
-            URL urlCon = new URL(url);
-            HttpURLConnection httpCon = (HttpURLConnection)urlCon.openConnection();
-
-            String json = "";
-
-            // build jsonObject
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("username", person.getId().toString());
-            jsonObject.put("password", "1");
-
-            // convert JSONObject to JSON to String
-            json = jsonObject.toString();
-
-            // Set some headers to inform server about the type of the content
-            // 타입설정(application/json) 형식으로 전송 (Request Body 전달시 application/json로 서버에 전달.)
-            httpCon.setRequestMethod("POST");
-            httpCon.setRequestProperty("Accept", "application/json");
-            httpCon.setRequestProperty("Content-type", "application/json");
-
-            // OutputStream으로 POST 데이터를 넘겨주겠다는 옵션.
-            httpCon.setDoOutput(true);
-            // InputStream으로 서버로 부터 응답을 받겠다는 옵션.
-            httpCon.setDoInput(true);
-
-            //연결 확인
-            //checkConnection(httpCon);
-
-            // Request Body에 Data를 담기위해 OutputStream 객체를 생성.
-            // 서버에 보낼 객체 생성
-            DataOutputStream out = new DataOutputStream(httpCon.getOutputStream());
-=======
             DataOutputStream out = new DataOutputStream(httpCon.getOutputStream()); // 서버에 보낼 객체 생성
->>>>>>> Eomji
             out.write(json.getBytes("utf-8"));   // 서버에 작성
             out.flush(); //객체 닫기
 
             //checkConnection(httpCon);
 
-<<<<<<< HEAD
-            // receive response as inputStream
-=======
             // 서버로부터 받은 응답 읽기
->>>>>>> Eomji
             try {
                 //서버에서 읽어오는 객체 생성
                 is = httpCon.getInputStream();
@@ -324,27 +157,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return result;
     }
 
-<<<<<<< HEAD
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.loginButton:
-                if(!validate())
-                    Toast.makeText(getBaseContext(), "Enter some data!", Toast.LENGTH_LONG).show();
-                else {
-                    // call AsynTask to perform network operation on separate thread
-                    HttpAsyncTask httpTask = new HttpAsyncTask(LoginActivity.this);
-                    //httpTask에 data 넘겨줌
-                    httpTask.execute("http://softwareengineeringtp.azurewebsites.net/loginCheck/", etId.getText().toString(), etPassword.getText().toString());
-
-                    //테스트 위한 임시 코드 4줄
-                    //HttpSignUpAsyncTask test = new HttpSignUpAsyncTask(LoginActivity.this);
-                    //test.execute("http://softwareengineeringtp.azurewebsites.net/signup/", "2014112057", "1","최진영");
-                    //HttpTokenAsyncTask test = new HttpTokenAsyncTask(LoginActivity.this);
-                    //test.execute("http://softwareengineeringtp.azurewebsites.net/api-token-auth/",  etId.getText().toString(), "1");
-                }
-                break;
-=======
     /**
      * 회원가입 수행
      * @param url - 연결할 서버의 주소
@@ -403,14 +215,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         catch (Exception e) {
             Log.d("InputStream", e.getLocalizedMessage());
->>>>>>> Eomji
         }
         return result;
     }
 
-<<<<<<< HEAD
-    /** 회원가입 위한 스레드 */
-=======
     /**
      * 토큰받기
      * @param - 연결할 서버의 주소
@@ -473,16 +281,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     /** 회원가입 위한 스레드
      * @author 김엄지
      * */
->>>>>>> Eomji
     private class HttpSignUpAsyncTask extends AsyncTask<String, Void, String> {
         private LoginActivity mainAct;
         HttpSignUpAsyncTask(LoginActivity mainActivity) {
             this.mainAct = mainActivity;
         }
 
-<<<<<<< HEAD
-        // 스레드의 메인부분 (데이터를 처리하는 부분)
-=======
         /**
          *  스레드의 메인부분 (회원가입 수행)
          *  @param urls - urls[0]: 연결할 서버 주소
@@ -492,18 +296,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
          *                 urls[4]: 기기의 토큰
          *  @return
          *  */
->>>>>>> Eomji
         @Override
         protected String doInBackground(String... urls) {
             person.setId(urls[1]);
             person.setPassword(urls[2]);
             person.setName(urls[3]);
-<<<<<<< HEAD
-
-            return signUp(urls[0]);
-        }
-        // doInBackground(메인스레드)가 끝나면 호출됨
-=======
             phoneToken=urls[4];
 
             return signUp(urls[0]);
@@ -512,7 +309,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
          *  doInBackground(메인스레드)가 끝나면 호출됨
          *  @param result
          *  */
->>>>>>> Eomji
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
@@ -520,23 +316,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void run() {
                     HttpTokenAsyncTask tokenTask = new HttpTokenAsyncTask(LoginActivity.this);
-<<<<<<< HEAD
-                    tokenTask.execute("http://softwareengineeringtp.azurewebsites.net/api-token-auth/", person.getId(),person.getPassword());
-=======
                     tokenTask.execute(mainURL+"api-token-auth/", person.getId(),person.getPassword());
->>>>>>> Eomji
                 }
             });
         }
     }
 
-<<<<<<< HEAD
-    /** 로그인 위한 스레드 */
-=======
     /** 로그인 위한 스레드
      * @author 김엄지
      * */
->>>>>>> Eomji
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         private LoginActivity mainAct;
         HttpAsyncTask(LoginActivity mainActivity) {
@@ -576,29 +364,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void run() {
                     try {
-<<<<<<< HEAD
-                        if(strJson.compareTo("\"error\"")!=0) {
-=======
                         if(!strJson.contains("error")) {    // 로그인 정보가 올바르면
->>>>>>> Eomji
                             JSONObject json = new JSONObject(strJson);
                             person.setName(json.getString("username"));
                             person.setOverlap(json.getString("overlap"));
 
-<<<<<<< HEAD
-                            if(person.getOverlap().compareTo("0")==0) {
-                                HttpSignUpAsyncTask signUpTask = new HttpSignUpAsyncTask(LoginActivity.this);
-                                signUpTask.execute("http://softwareengineeringtp.azurewebsites.net/signup/", person.getId(),person.getPassword(), person.getName());
-                            }
-                            else{
-                                HttpTokenAsyncTask tokenTask = new HttpTokenAsyncTask(LoginActivity.this);
-                                tokenTask.execute("http://softwareengineeringtp.azurewebsites.net/api-token-auth/", person.getId(),person.getPassword());
-                            }
-                        }
-                        else{
-                            Toast.makeText(mainAct, "로그인 실패! ID나 PW를 확인해주세요!", Toast.LENGTH_LONG).show();
-                        }
-=======
                             if(person.getOverlap().compareTo("0")==0) { // 회원가입 되어있지 않으면
                                 // 회원가입 스레드 실행
                                 HttpSignUpAsyncTask signUpTask = new HttpSignUpAsyncTask(LoginActivity.this);
@@ -662,7 +432,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         userToken = json.getString("token");
 
                         onTokenRefresh(); // 기기의 토큰 refresh
->>>>>>> Eomji
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -797,56 +566,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-<<<<<<< HEAD
-    /** 토큰받기 위한 스레드 */
-    private class HttpTokenAsyncTask extends AsyncTask<String, Void, String> {
-        private LoginActivity mainAct;
-        private String token = "";
-        HttpTokenAsyncTask(LoginActivity mainActivity) {
-            this.mainAct = mainActivity;
-        }
-
-        // 스레드의 메인부분 (데이터를 처리하는 부분)
-        @Override
-        protected String doInBackground(String... urls) {
-            person.setId(urls[1]);
-            person.setPassword(urls[2]);
-
-            return getTocken(urls[0]);
-        }
-        // doInBackground(메인스레드)가 끝나면 호출됨
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            token = result;
-            mainAct.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        JSONObject json = new JSONObject(token);
-                        token = json.getString("token");
-                        Toast.makeText(mainAct, "로그인되었습니다!", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                        intent.putExtra("username", person.getName());
-                        intent.putExtra("userID", person.getId());
-                        intent.putExtra("token", token);
-                        startActivity(intent);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        }
-    }
-
-    /** 입력텍스트를 모두 입력했는지 확인 */
-=======
     /**
      * 입력텍스트를 모두 입력했는지 확인
      * @return - 모두 입력했으면 true, 입력하지 않았으면 false를 반환
      * @author - 최진영
      * */
->>>>>>> Eomji
     private boolean validate(){
         if(etId.getText().toString().trim().equals(""))
             return false;
@@ -856,16 +580,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return true;
     }
 
-<<<<<<< HEAD
-    /** InputStream을 String으로 변환 (서버에서 받은 값을 String으로 변환) */
-=======
     /**
      * InputStream을 String으로 변환 (서버에서 받은 값을 String으로 변환)
      * @param inputStream - 서버에서 받은 값을 저장한 InputStream 객체
      * @return - 서버에서 받은 값을 String으로 변환한 결과
      * @author - 최진영
      * */
->>>>>>> Eomji
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
@@ -877,15 +597,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return result;
     }
 
-<<<<<<< HEAD
-    /** 연결이 제대로 이루어졌는지 확인하고 그렇지 않다면 오류메시지 출력 */
-=======
     /**
      * 연결이 제대로 이루어졌는지 확인하고 그렇지 않다면 오류메시지 출력
      * @param httpCon - 연결한 서버의 HttpURLConnection 객체체
      * @author 김엄지
      * */
->>>>>>> Eomji
     private static void checkConnection(HttpURLConnection httpCon){
         //연결 확인
         byte[] buf = new byte[4096];
@@ -893,11 +609,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int code = 0;
         try {
             code = httpCon.getResponseCode(); // 실질적으로 웹서버에 접속하여 요청을 보내고 응답을 수신하는 시점
-<<<<<<< HEAD
-            if(code>=400){
-=======
             if(code>=400){      // 서버오류이면
->>>>>>> Eomji
                 bos.reset();
                 InputStream err = httpCon.getErrorStream();
                 while(true){

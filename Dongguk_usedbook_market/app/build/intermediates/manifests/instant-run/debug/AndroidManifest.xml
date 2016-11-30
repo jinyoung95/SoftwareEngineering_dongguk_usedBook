@@ -23,7 +23,7 @@
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
         android:icon="@drawable/launchermap"
-        android:label=" "
+        android:label="코끼리 중고도서"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.se_team8.dongguk_usedbook_market.LoginActivity" >
@@ -31,6 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+  // firebase push messaging
             </intent-filter>
         </activity>
         <activity android:name="com.se_team8.dongguk_usedbook_market.HomeActivity" />
@@ -44,6 +46,9 @@
         <activity android:name="com.se_team8.dongguk_usedbook_market.BookDetailsActivity" >
         </activity>
         <activity android:name="com.se_team8.dongguk_usedbook_market.BuyerSearchActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.MypageRegisterActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.MypageRequestActivity" />
+        <activity android:name="com.se_team8.dongguk_usedbook_market.RequestListActivity" />
 
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -57,18 +62,10 @@
         <service android:name="com.se_team8.dongguk_usedbook_market.MyFirebaseMessagingService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
+   // firebase push messaging
             </intent-filter>
         </service>
-        <!-- [END firebase_service] -->
 
-
-        <!-- [START firebase_iid_service] -->
-        <service android:name="com.se_team8.dongguk_usedbook_market.firebase.MyFirebaseInstanceIDService" >
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-        <!-- [END firebase_iid_service] -->
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="com.se_team8.dongguk_usedbook_market.firebaseinitprovider"

@@ -6,24 +6,6 @@ package com.se_team8.dongguk_usedbook_market;
 
 public class ChatListItem {
     private String[] data = new String[2];
-<<<<<<< HEAD
-    private String mRecipient;
-    private String mLast;
-
-    public ChatListItem(String mRecipient, String mLast){
-        this.mRecipient = mRecipient;
-        this.mLast = mLast;
-        this.data[0] = mRecipient;
-        this.data[1] = mLast;
-    }
-
-    public String getmRecipient() {
-        return mRecipient;
-    }
-
-    public void setmRecipient(String mRecipient) {
-        this.mRecipient = mRecipient;
-=======
     private String mRecipientID; //상대방아이디
     private String mRecipientName; //상대방 이름
     private String mLast; //마지막 메세지
@@ -63,7 +45,6 @@ public class ChatListItem {
 
     public void setmRecipientName(String mRecipientName) {
         this.mRecipientName = mRecipientName;
->>>>>>> Eomji
     }
 
     public String getmLast() {
@@ -73,9 +54,4 @@ public class ChatListItem {
     public void setmLast(String mLast) {
         this.mLast = mLast;
     }
-<<<<<<< HEAD
-
-    public String[] getData(){ return data; }
-=======
->>>>>>> Eomji
 }

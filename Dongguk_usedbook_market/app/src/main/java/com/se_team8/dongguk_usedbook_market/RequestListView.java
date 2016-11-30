@@ -19,17 +19,10 @@ public class RequestListView extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.request_list_child,this,true);
 
-<<<<<<< HEAD
-        requestID = (TextView)findViewById(R.id.requestID);
-        requestName = (TextView)findViewById(R.id.requestName);
-    }
-    public void setText(int index, String data) {
-=======
         requestID = (TextView)findViewById(R.id.requestStudentID); //해당 뷰의 아이디를 불러 저장한다.
         requestName = (TextView)findViewById(R.id.requestStudentName);
     }
     public void setText(int index, String data) { //목록명을 설정한다.
->>>>>>> Eomji
         if (index == 0) {
             requestID.setText(data);
         } else if (index == 1) {

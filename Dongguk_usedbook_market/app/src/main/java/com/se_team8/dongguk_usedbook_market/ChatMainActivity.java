@@ -1,6 +1,5 @@
 package com.se_team8.dongguk_usedbook_market;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -42,14 +41,6 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
     private MessagesAdapter mAdapter;
     private String mRecipient;
     private String mRecipientName;
-<<<<<<< HEAD
-  //  private String mSender;
-    private ListView mListView;
-    private String mConvoId;
-    private MessageDataSource.MessageListener mListener;
-    public String username;
-    public String userID;
-=======
     private ListView mListView;
     private String mConvoId;
     private MessageDataSource.MessageListener mListener;
@@ -60,7 +51,6 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
     static String strJson = "";
     private ChatListItem chatListItem;
     private static String option;
->>>>>>> Eomji
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,16 +60,10 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
 
-<<<<<<< HEAD
-        if(intent != null){
-            username = intent.getStringExtra("username");
-            userID=intent.getStringExtra("userID");
-=======
         if(intent != null){ //이전 인텐트에서 정보들을 받아온다.
             username = intent.getStringExtra("username");
             userID=intent.getStringExtra("userID");
             token = intent.getStringExtra("token");
->>>>>>> Eomji
             mRecipient = intent.getStringExtra("RecipientID");
             mRecipientName=intent.getStringExtra("RecipientName");
             chatID =  intent.getStringExtra("chatID");
@@ -99,15 +83,8 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         Button sendMessage = (Button) findViewById(R.id.send_message);
         sendMessage.setOnClickListener(this);
 
-<<<<<<< HEAD
-        String[] ids = {userID,"-", mRecipient};
-        //Arrays.sort(ids);
-        mConvoId = userID;
-        mListener = MessageDataSource.addMessagesListener(mConvoId,mRecipient, this);
-=======
         mConvoId = userID; //유저아이디 설정
         mListener = MessageDataSource.addMessagesListener(mConvoId,mRecipient, this); //메세지를 추가한다.
->>>>>>> Eomji
     }
 
     @Override
@@ -119,9 +96,6 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
         msg.setmDate(new Date()); //메세지에 각정보를 담아
         msg.setmText(newMessage);
         msg.setmSender(mRecipient);
-<<<<<<< HEAD
-        MessageDataSource.saveMessage(msg, mConvoId,mRecipient);
-=======
         MessageDataSource.saveMessage(msg, mConvoId,mRecipient); //메세지를 파이어베이스에 저장한다.
 
         HttpAsyncTask httpTask1 = new HttpAsyncTask(ChatMainActivity.this);
@@ -134,7 +108,6 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
             httpTask2.execute(mainURL + "users/" + chatID + "/my/chat/list/update/", msg.getmText());
             option = "PUT";
         }
->>>>>>> Eomji
     }
 
     @Override
@@ -165,11 +138,7 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) nameView.getLayoutParams();
 
             int sdk = Build.VERSION.SDK_INT;
-<<<<<<< HEAD
-            if (message.getmSender().equals(userID)) {
-=======
             if (message.getmSender().equals(userID)) { //메세지를 보낸 사람이 유저 아이디와 같다면
->>>>>>> Eomji
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
                     nameView.setBackground(getDrawable(R.drawable.bubble_right_green)); //오른쪽 말풍선 삽입
                 } else {
@@ -246,17 +215,12 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
     // 판매등록 저장을 위한 스레드
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         private ChatMainActivity mainAct;
-        ProgressDialog dialog;
-
         HttpAsyncTask(ChatMainActivity mainActivity) {
             this.mainAct = mainActivity;
         }
 
         protected  void onPreExecute(){
             super.onPreExecute();
-
-            dialog = new ProgressDialog(mainAct);
-            dialog.show();
         }
 
         // 스레드의 메인부분 (데이터를 처리하는 부분)
@@ -284,7 +248,6 @@ public class ChatMainActivity extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void run() {
                     if (strJson.contains("Success")) {
-                        dialog.dismiss();
                         option = "PUT";
                     }
                 }

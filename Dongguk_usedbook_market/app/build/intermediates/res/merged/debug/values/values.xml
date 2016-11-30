@@ -260,11 +260,11 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDEGa2vHYaowhQxlTp1o9PN_8JZ7xkt0eA</string>
     <string name="google_storage_bucket" translatable="false">ppuu-41926.appspot.com</string>
     <string name="log_token">Log Token</string>
-    <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
-    <string name="quickstart_message">Click the SUBSCRIBE TO NEWS button below to subscribe to the news topic. Messages sent to the news topic will be received. The LOG TOKEN button logs the InstanceID token to logcat.</string>
+    <string name="quickstart_message">Click the SUBSCRIBE TO NEWS button below to subscribe to the
+        news topic. Messages sent to the news topic will be received. The LOG TOKEN button logs the
+        InstanceID token to logcat.</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="subscribe_to_news">Subscribe To News</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

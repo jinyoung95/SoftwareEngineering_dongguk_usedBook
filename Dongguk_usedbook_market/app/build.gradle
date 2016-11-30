@@ -34,14 +34,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-appindexing:9.6.1'
     compile 'com.firebase:firebase-client-android:2.5.2+'
-<<<<<<< HEAD
-
-    compile 'com.google.firebase:firebase-messaging:9.6.1'          // firebase push messaging
-    compile 'com.googlecode.android-query:android-query:0.25.9'     // AQuery
-=======
     compile 'com.googlecode.android-query:android-query:0.25.9'     // AQuery
     compile 'com.google.firebase:firebase-messaging:9.6.1'  // firebase push message
->>>>>>> Eomji
 }
 
 // Add to the bottom of the file

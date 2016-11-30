@@ -1,26 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="요청 목록이 존재하지 않습니다."
-        />
-
-    <TextView
-        android:id="@+id/requestID"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp" />
-
-    <TextView
-        android:id="@+id/requestName"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp" />
-=======
 <!-- Created by 2014112019 김주현 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
@@ -41,6 +19,5 @@
         android:layout_width="180dp"
         android:textSize="18sp"
         android:padding="15dp" />
->>>>>>> Eomji
 
 </LinearLayout>

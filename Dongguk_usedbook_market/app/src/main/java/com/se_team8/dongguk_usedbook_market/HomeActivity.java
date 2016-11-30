@@ -27,11 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
-    // 도서 검색 클릭
-=======
     /** 도서 검색 버튼 클릭 */
->>>>>>> Eomji
     public void onBuyerSearchButtonClicked(View view){
         Intent intent = new Intent(getApplicationContext(), BuyerSearchActivity.class);
         intent.putExtra("username", userName);
@@ -40,11 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-<<<<<<< HEAD
-    // 판매 등록 클릭
-=======
     /** 판매 등록 버튼 클릭 */
->>>>>>> Eomji
     public void onSellerSearchBtnClicked(View view){
         Intent intent = new Intent(getApplicationContext(), SellerSearchActivity.class);
         intent.putExtra("username", userName);
@@ -53,11 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-<<<<<<< HEAD
-    // 마이페이지 클릭
-=======
     /** 마이페이지 버튼 클릭 */
->>>>>>> Eomji
     public void onMypageButtonClicked(View v){
         Intent intent = new Intent(getApplicationContext(),MypageActivity.class);
         intent.putExtra("username", userName);
@@ -66,11 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-<<<<<<< HEAD
-    // 로그아웃 클릭
-=======
     /** 로그아웃 버튼 클릭 */
->>>>>>> Eomji
     public void onLogoutButtonClicked(View v){
         Toast.makeText(getApplicationContext(),"로그아웃합니다.", Toast.LENGTH_LONG).show();
         Intent logoutIntent = new Intent(getApplicationContext(),LoginActivity.class);
