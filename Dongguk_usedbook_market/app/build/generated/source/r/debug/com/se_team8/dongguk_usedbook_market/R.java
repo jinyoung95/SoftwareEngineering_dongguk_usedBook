@@ -2026,7 +2026,7 @@ containing a value of this type.
         public static final int bookDetails=0x7f0c0073;
         public static final int bookStatus=0x7f0c007b;
         public static final int book_details_page=0x7f0c006e;
-        public static final int btnMore=0x7f0c00be;
+        public static final int btnMore=0x7f0c00bd;
         public static final int buttonPanel=0x7f0c0053;
         public static final int cancel_action=0x7f0c00e3;
         public static final int chat_button=0x7f0c0094;
@@ -2066,7 +2066,7 @@ containing a value of this type.
         public static final int icon_uri=0x7f0c0018;
         public static final int ifRoom=0x7f0c002c;
         public static final int image=0x7f0c0045;
-        public static final int imageView2=0x7f0c00bb;
+        public static final int imageView2=0x7f0c00be;
         public static final int index_entity_types=0x7f0c0035;
         public static final int info=0x7f0c00ec;
         public static final int info1=0x7f0c0098;
@@ -2091,7 +2091,7 @@ containing a value of this type.
         public static final int listButton=0x7f0c0071;
         public static final int listMode=0x7f0c0009;
         public static final int listName=0x7f0c009b;
-        public static final int listView=0x7f0c00bd;
+        public static final int listView=0x7f0c00bc;
         public static final int list_item=0x7f0c0047;
         public static final int loginButton=0x7f0c008d;
         public static final int logoutButton=0x7f0c0087;
@@ -2135,7 +2135,7 @@ containing a value of this type.
         public static final int screen=0x7f0c0014;
         public static final int scrollView=0x7f0c004f;
         public static final int searchButton=0x7f0c0089;
-        public static final int searchText=0x7f0c00bc;
+        public static final int searchText=0x7f0c00bb;
         public static final int search_badge=0x7f0c0061;
         public static final int search_bar=0x7f0c0060;
         public static final int search_button=0x7f0c0062;

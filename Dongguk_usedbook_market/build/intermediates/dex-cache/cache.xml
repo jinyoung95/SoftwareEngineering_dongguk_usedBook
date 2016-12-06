@@ -3,39 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="ac8365c87591065db07f7bac8551504504832cd4">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.1_3d9a5dd0513375c9e7b8678eefed10e178caa774\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="a1c351dc10b92d638da57f3a6513f87cfbdc9f83">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.1_133432c74af165b84d2c69a5eb0883696db180ac\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\juhye\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.5.2\f19f10d6276aa0b380e2d05d2ab3272d693a5433\firebase-client-android-2.5.2.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-android-2.5.2_3fc8616eeb7f917ba197608c98a8f034c603cd27\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-android-2.5.2_3fc8616eeb7f917ba197608c98a8f034c603cd27\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="b75ecdd04a37d31b4a0da2729fc5c558962a529b">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.1_955ac8503a96bc4678cb86f54dbc40d0e7d62327\classes.dex" />
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_dabaccacc300eb405e50a6e28132e9d550a3d792\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -44,16 +26,7 @@
         optimize="true"
         revision="23.0.0"
         sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.2.2_492fa064347dfc7e55dff41a48405721103916bb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="4a36600281a648769411ef642c331851732bf29e">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.1_f535175d6bd43719efe6570c8834a9b306b8c837\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.2.2_492fa064347dfc7e55dff41a48405721103916bb\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -62,7 +35,16 @@
         optimize="true"
         revision="23.0.0"
         sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_9e5574ac36a36b0807a01576d9179fddfb19d04b\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_9e5574ac36a36b0807a01576d9179fddfb19d04b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.1_cbc49b36fe151795528b7e197c229b32b831c9c4\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -71,25 +53,16 @@
         optimize="true"
         revision="23.0.0"
         sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.2.2_b2fb980bb7b86e2572a78e2bb14207c2a7567dd2\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.2.2_b2fb980bb7b86e2572a78e2bb14207c2a7567dd2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.1_c6f919d7af6eae38bd36882814c5bb6b39477092\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.0"
-        sha1="e46c991fcf3223209d2639653aea0b402c213597">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bbee01480abe99d35b0f6ed1833e489addb119bf\classes.dex" />
+        sha1="ac8365c87591065db07f7bac8551504504832cd4">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.1_2d782ee8c46863f95093e55dea20cfbc74832f29\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -98,7 +71,16 @@
         optimize="true"
         revision="23.0.0"
         sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.2.2_6b9ba8246254799782fe0dca3353ff240ce44773\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.2.2_6b9ba8246254799782fe0dca3353ff240ce44773\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="0efd1b44f47c134fb245914a1d54a55adbfc2f8d">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.1_a65f15aea6daf03290bcec2cf7e0656ef6a9777d\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -107,61 +89,70 @@
         optimize="true"
         revision="23.0.0"
         sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\tubesock-0.0.12_00f8260ea68dced33f7fe7b74897f1f0c50b5ddf\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\tubesock-0.0.12_00f8260ea68dced33f7fe7b74897f1f0c50b5ddf\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="e70ac04b0ba8db0decb480890775dd76557ca642">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_539a92b23c6cef0a30571eae3d68299ce9cf17b6\classes.dex" />
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.1_ba271d2297a94eaf67bf08008002378a2742bf6e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="1ef72e72bc0d05602c366582afa9439f58bb31d6">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.1_996b1f8042228b8861e7e9259fccd7d6e0921824\classes.dex" />
+        sha1="4c6e2d24cf547af4485d55dacfc44a172bc6213d">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_a5ff9a37e3fa3a1ca3a3ee0feba0a249855bdcc6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_31b0e1b00bb482d50e785ba3509a35d85044e921\classes.dex" />
+        sha1="cc39b4bcc9e7062891db90d5a752fa9e4986f447">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.6.1_bb2079100b5c9d2021ad6cb27b3572388a35bc73\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="1e14ebe1cda8491f152083e752ca5bf73cd37bff">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.1_2d58cb674d8a3b7130ce244ff86e0bf5df91b260\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.1_950e1db0c8183942f439331b95d4e7cbccffdb06\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="80dd8bea08bc5fe10b10a3243b8279c856ccc690">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.6.1_3eaf897197a106e22b25bf7a11dd3b39b2bd6784\classes.dex" />
+        sha1="1ef72e72bc0d05602c366582afa9439f58bb31d6">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.1_d50df2169fef3b89151bafed02814d7db044a0dc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.0.1_2cfd381f8d85d5ec8c3edf4de40ca77fe20759bb\classes.dex" />
+        sha1="b75ecdd04a37d31b4a0da2729fc5c558962a529b">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.1_7c3ab45442091e03db99d561bf97a953b90485f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="7c9fe7250f9f6b0e6f59208a7911d38c2cdc37ba">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_28f2048db9b5ee9755d9c46f5e3a6253b3f02474\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -170,25 +161,25 @@
         optimize="true"
         revision="23.0.0"
         sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-jvm-2.5.2_51927a0ba2d18bbb1840a0f9ecae7c232809642c\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-jvm-2.5.2_51927a0ba2d18bbb1840a0f9ecae7c232809642c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_dc8ff4ad905a87482f7495fce5ddce731b299ee8\classes.dex" />
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.0.1_95aea8df1bf66a2915b5a6633b9938197d295bc7\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="0efd1b44f47c134fb245914a1d54a55adbfc2f8d">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.1_5ac1d5bd36abef30a0cca98da14a0959bfe43e0a\classes.dex" />
+        sha1="80dd8bea08bc5fe10b10a3243b8279c856ccc690">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.6.1_b814e45fe3cadf5d9a3bb0aa796eb10054a0f44b\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -197,25 +188,34 @@
         optimize="true"
         revision="23.0.0"
         sha1="fff82e4e1e56b60d6eb1d5487dbd3d3b526b635f">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\android-query-0.25.9_89e06d322b596f4727d1f5636b1977504f74eb28\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\android-query-0.25.9_89e06d322b596f4727d1f5636b1977504f74eb28\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_d6edfb44e02d3626a4fc5b676d419bf94a9cbe80\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
         sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.1_07822259a66d3c9deae72a2def4f0f9a21fc508e\classes.dex" />
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.1_1e27ea9a82331e9b35d16eea78b119f02ff40afa\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.6.1\jars\classes.jar"
+        jar="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.0"
-        sha1="cc39b4bcc9e7062891db90d5a752fa9e4986f447">
-        <dex dex="C:\Users\juhye\Desktop\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.6.1_44dbf3b1662e5d203918d1a1bc9304b9874e0922\classes.dex" />
+        sha1="a1c351dc10b92d638da57f3a6513f87cfbdc9f83">
+        <dex dex="C:\Users\juhye\AndroidStudioProjects\Dongguk_usedbook_market\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.1_aee4622a5d4727822f956989dda319cc625bd10b\classes.dex" />
     </item>
 
 </items>

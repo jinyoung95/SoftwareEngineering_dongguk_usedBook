@@ -231,6 +231,7 @@ public class BuyerSearchActivity extends AppCompatActivity{
                 dialog.dismiss();
                 Toast.makeText(getApplicationContext(), "검색결과가 존재하지 않습니다.", Toast.LENGTH_LONG).show();
             }
+
         }
     }
 

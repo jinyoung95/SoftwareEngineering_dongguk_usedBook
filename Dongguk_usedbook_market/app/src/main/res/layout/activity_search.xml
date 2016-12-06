@@ -22,15 +22,6 @@
         android:background="@drawable/home_button"/>
 
     <!-- 도서검색메뉴 -->
-    <ImageView
-        android:layout_height="wrap_content"
-        android:layout_width="200dp"
-        android:id="@+id/imageView2"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/search_page"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/searchButton"
-        android:layout_above="@+id/searchText" />
 
     <!-- 검색 버튼 -->
     <Button
@@ -82,4 +73,13 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="더보기" />
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:background="@drawable/search_page"
+        android:layout_width="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/searchButton" />
 </RelativeLayout>

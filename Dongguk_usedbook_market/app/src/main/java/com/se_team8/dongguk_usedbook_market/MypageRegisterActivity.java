@@ -100,6 +100,7 @@ public class MypageRegisterActivity extends AppCompatActivity {
         intent.putExtra("userID", userID);
         intent.putExtra("token", token);
         startActivity(intent);
+        finish();
     }
 
     /**
@@ -107,6 +108,11 @@ public class MypageRegisterActivity extends AppCompatActivity {
      * @param view
      * */
     public void onListBtnClicked(View view){
+        Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        startActivity(intent);
         finish();
     }
 
@@ -131,6 +137,11 @@ public class MypageRegisterActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // 타이틀 숨김
         HttpAsyncTask httpTask = new HttpAsyncTask(MypageRegisterActivity.this);
         httpTask.execute(mainURL+"register/book/"+bookID+"/");  //판매 등록 도서 삭제 스레드 실행
+        Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        startActivity(intent);
     }
 
     /**
@@ -152,7 +163,9 @@ public class MypageRegisterActivity extends AppCompatActivity {
         intent.putExtra("bookPrice", price);
         intent.putExtra("bookPubdate", pubdate);
         intent.putExtra("bookPublisher", publisher);
+        intent.putExtra("mypage", "mypage");
         startActivity(intent); // 액티비티 실행
+        finish();
     }
 
     /**

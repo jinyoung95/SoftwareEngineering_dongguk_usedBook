@@ -110,6 +110,12 @@ public class MypageRequestActivity extends AppCompatActivity {
      * @param view
      * */
     public void onListBtnClicked(View view){
+
+        Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        startActivity(intent);
         finish();
     }
 
@@ -121,6 +127,12 @@ public class MypageRequestActivity extends AppCompatActivity {
         getSupportActionBar().hide(); // 타이틀이 안보이도록 함
         HttpAsyncTask httpTask = new HttpAsyncTask(MypageRequestActivity.this);
         httpTask.execute(mainURL+"application/del/book/"+requestID+"/");    // 삭제 스레드 실행
+        Intent intent = new Intent(getApplicationContext(), MypageActivity.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("userID", userID);
+        intent.putExtra("token", token);
+        startActivity(intent);
+        finish();
     }
 
     /**

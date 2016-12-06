@@ -73,55 +73,55 @@ public class MypageActivity extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 if (all_book.get(groupPosition).getListID() == 0) {
                     //내가 판매등록한 책의 세부정보로 넘어가는 버튼
-                        Intent intent = new Intent(getApplicationContext(), MypageRegisterActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MypageRegisterActivity.class);
 
-                        intent.putExtra("bookID", all_book.get(groupPosition).getBookId().get(childPosition));
-                        intent.putExtra("bookTitle", all_book.get(groupPosition).getTitle().get(childPosition));
-                        intent.putExtra("bookAuthor", all_book.get(groupPosition).getAuthor().get(childPosition));
-                        intent.putExtra("bookCover", all_book.get(groupPosition).getImgUrl().get(childPosition));
-                        intent.putExtra("bookISBN", all_book.get(groupPosition).getIsbn().get(childPosition));
-                        intent.putExtra("bookPubdate", all_book.get(groupPosition).getPubdate().get(childPosition));
-                        intent.putExtra("bookPublisher", all_book.get(groupPosition).getPublisher().get(childPosition));
-                        intent.putExtra("cource", all_book.get(groupPosition).getCourse().get(childPosition));
-                        intent.putExtra("professor", all_book.get(groupPosition).getProfessor().get(childPosition));
-                        intent.putExtra("sellerPrice", all_book.get(groupPosition).getSellerPrice().get(childPosition));
-                        intent.putExtra("comment", all_book.get(groupPosition).getComment().get(childPosition));
-                        intent.putExtra("status", all_book.get(groupPosition).getStatus().get(childPosition));
-                        intent.putExtra("bookPrice", all_book.get(groupPosition).getPrice().get(childPosition));
-                        intent.putExtra("owner", all_book.get(groupPosition).getOwner().get(childPosition));
+                    intent.putExtra("bookID", all_book.get(groupPosition).getBookId().get(childPosition));
+                    intent.putExtra("bookTitle", all_book.get(groupPosition).getTitle().get(childPosition));
+                    intent.putExtra("bookAuthor", all_book.get(groupPosition).getAuthor().get(childPosition));
+                    intent.putExtra("bookCover", all_book.get(groupPosition).getImgUrl().get(childPosition));
+                    intent.putExtra("bookISBN", all_book.get(groupPosition).getIsbn().get(childPosition));
+                    intent.putExtra("bookPubdate", all_book.get(groupPosition).getPubdate().get(childPosition));
+                    intent.putExtra("bookPublisher", all_book.get(groupPosition).getPublisher().get(childPosition));
+                    intent.putExtra("cource", all_book.get(groupPosition).getCourse().get(childPosition));
+                    intent.putExtra("professor", all_book.get(groupPosition).getProfessor().get(childPosition));
+                    intent.putExtra("sellerPrice", all_book.get(groupPosition).getSellerPrice().get(childPosition));
+                    intent.putExtra("comment", all_book.get(groupPosition).getComment().get(childPosition));
+                    intent.putExtra("status", all_book.get(groupPosition).getStatus().get(childPosition));
+                    intent.putExtra("bookPrice", all_book.get(groupPosition).getPrice().get(childPosition));
+                    intent.putExtra("owner", all_book.get(groupPosition).getOwner().get(childPosition));
 
-                        intent.putExtra("username", username);
-                        intent.putExtra("userID", userID);
-                        intent.putExtra("token", token);
+                    intent.putExtra("username", username);
+                    intent.putExtra("userID", userID);
+                    intent.putExtra("token", token);
 
-                        startActivity(intent);
-
+                    startActivity(intent);
+                    finish();
 
                 } else if (all_book.get(groupPosition).getListID() == 1) {
 
-                        //세부정보로 넘어가는 버튼
-                        Intent intent = new Intent(getApplicationContext(), MypageRequestActivity.class);
-                        intent.putExtra("requestId", all_book.get(groupPosition).getRequestId().get(childPosition));
-                        intent.putExtra("bookTitle", all_book.get(groupPosition).getTitle().get(childPosition));
-                        intent.putExtra("bookAuthor", all_book.get(groupPosition).getAuthor().get(childPosition));
-                        intent.putExtra("bookCover", all_book.get(groupPosition).getImgUrl().get(childPosition));
-                        intent.putExtra("bookISBN", all_book.get(groupPosition).getIsbn().get(childPosition));
-                        intent.putExtra("bookPubdate", all_book.get(groupPosition).getPubdate().get(childPosition));
-                        intent.putExtra("bookPublisher", all_book.get(groupPosition).getPublisher().get(childPosition));
-                        intent.putExtra("cource", all_book.get(groupPosition).getCourse().get(childPosition));
-                        intent.putExtra("professor", all_book.get(groupPosition).getProfessor().get(childPosition));
-                        intent.putExtra("sellerPrice", all_book.get(groupPosition).getSellerPrice().get(childPosition));
-                        intent.putExtra("comment", all_book.get(groupPosition).getComment().get(childPosition));
-                        intent.putExtra("status", all_book.get(groupPosition).getStatus().get(childPosition));
-                        intent.putExtra("bookPrice", all_book.get(groupPosition).getPrice().get(childPosition));
-                        intent.putExtra("owner", all_book.get(groupPosition).getOwner().get(childPosition));
+                    //세부정보로 넘어가는 버튼
+                    Intent intent = new Intent(getApplicationContext(), MypageRequestActivity.class);
+                    intent.putExtra("requestId", all_book.get(groupPosition).getRequestId().get(childPosition));
+                    intent.putExtra("bookTitle", all_book.get(groupPosition).getTitle().get(childPosition));
+                    intent.putExtra("bookAuthor", all_book.get(groupPosition).getAuthor().get(childPosition));
+                    intent.putExtra("bookCover", all_book.get(groupPosition).getImgUrl().get(childPosition));
+                    intent.putExtra("bookISBN", all_book.get(groupPosition).getIsbn().get(childPosition));
+                    intent.putExtra("bookPubdate", all_book.get(groupPosition).getPubdate().get(childPosition));
+                    intent.putExtra("bookPublisher", all_book.get(groupPosition).getPublisher().get(childPosition));
+                    intent.putExtra("cource", all_book.get(groupPosition).getCourse().get(childPosition));
+                    intent.putExtra("professor", all_book.get(groupPosition).getProfessor().get(childPosition));
+                    intent.putExtra("sellerPrice", all_book.get(groupPosition).getSellerPrice().get(childPosition));
+                    intent.putExtra("comment", all_book.get(groupPosition).getComment().get(childPosition));
+                    intent.putExtra("status", all_book.get(groupPosition).getStatus().get(childPosition));
+                    intent.putExtra("bookPrice", all_book.get(groupPosition).getPrice().get(childPosition));
+                    intent.putExtra("owner", all_book.get(groupPosition).getOwner().get(childPosition));
 
-                        intent.putExtra("username", username);
-                        intent.putExtra("userID", userID);
-                        intent.putExtra("token", token);
+                    intent.putExtra("username", username);
+                    intent.putExtra("userID", userID);
+                    intent.putExtra("token", token);
 
-                        startActivity(intent);
-
+                    startActivity(intent);
+                    finish();
                 }
 
                 return false;
@@ -149,6 +149,7 @@ public class MypageActivity extends AppCompatActivity {
         intent.putExtra("userID",userID);
         intent.putExtra("token",token);
         startActivity(intent);
+        finish();
     }
 
     public static String getListData(String url){

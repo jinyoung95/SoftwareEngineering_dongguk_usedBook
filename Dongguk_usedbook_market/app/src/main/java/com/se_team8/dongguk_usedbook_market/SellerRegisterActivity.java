@@ -44,6 +44,7 @@ public class SellerRegisterActivity extends AppCompatActivity{
     private static String strJson = "";
     private static String userName, userID, token, bookID;
     public static String mainURL = "http://softwareengineeringtp.azurewebsites.net/";
+    private String IsMypage="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,11 +121,20 @@ public class SellerRegisterActivity extends AppCompatActivity{
             //httpTask에 로그인 data 넘겨줌
             if (option.equals("POST")) { // 판매등록
                 task.execute(mainURL + "register/book/", tvTitle.getText().toString(), tvAuthor.getText().toString(), ISBN, price, tvPublisher.getText().toString(), pubdate, cover, sbCourse, sbProfessor, sbPrice, sbMoreDetails, sbStatus);
+
             }
             if(option.equals("PUT")){ // 판매등록된 내용 수정
                 task.execute(mainURL+"register/book/"+bookID+"/", tvTitle.getText().toString(), tvAuthor.getText().toString(), ISBN, price, tvPublisher.getText().toString(), pubdate, cover, sbCourse, sbProfessor, sbPrice, sbMoreDetails, sbStatus);
+                Intent intent = new Intent(getApplicationContext(), MypageActivity.class); // intent 생성
+                // 필요한 정보 전달
+                intent.putExtra("username", userName);
+                intent.putExtra("userID", userID);
+                intent.putExtra("token", token);
+                startActivity(intent); // 액티비티 실행
+                finish();
             }
         }
+
     }
 
     /**
